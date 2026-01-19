@@ -1,7 +1,7 @@
-import { ServicesHero } from "./_components/ServicesHero";
-import { ServicesList } from "./_components/ServicesList";
-import { ServicesProcess } from "./_components/ServicesProcess";
-import { ServicesRequestForm } from "./_components/ServicesRequestForm";
+import { ServicesHero } from "./_components/ServicesHero/ServicesHero";
+import { ServicesList } from "./_components/ServicesList/ServicesList";
+import { ServicesProcess } from "./_components/ServicesProcess/ServicesProcess";
+import { ServicesRequestForm } from "./_components/ServicesRequestForm/ServicesRequestForm";
 
 export const metadata = {
   title: "Services | NeoRecruits",

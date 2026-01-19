@@ -1,11 +1,11 @@
-import { AboutHero } from "./_components/AboutHero";
-import { AboutOverview } from "./_components/AboutOverview";
-import { AboutRegions } from "./_components/AboutRegions";
-import { AboutCEOMessage } from "./_components/AboutCEOMessage";
-import { AboutMissionValues } from "./_components/AboutMissionValues";
-import { AboutServices } from "./_components/AboutServices";
-import { AboutOffices } from "./_components/AboutOffices";
-import { AboutCompliance } from "./_components/AboutCompliance";
+import { AboutHero } from "./_components/AboutHero/AboutHero";
+import { AboutOverview } from "./_components/AboutOverview/AboutOverview";
+import { AboutRegions } from "./_components/AboutRegions/AboutRegions";
+import { AboutCEOMessage } from "./_components/AboutCEOMessage/AboutCEOMessage";
+import { AboutMissionValues } from "./_components/AboutMissionValues/AboutMissionValues";
+import { AboutServices } from "./_components/AboutServices/AboutServices";
+import { AboutOffices } from "./_components/AboutOffices/AboutOffices";
+import { AboutCompliance } from "./_components/AboutCompliance/AboutCompliance";
 
 export const metadata = {
   title: "About Us | NeoRecruits",

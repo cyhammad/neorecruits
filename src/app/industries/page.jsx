@@ -1,7 +1,7 @@
-import { IndustriesHero } from "./_components/IndustriesHero";
-import { IndustriesShowcase } from "./_components/IndustriesShowcase";
-import { IndustriesExpertise } from "./_components/IndustriesExpertise";
-import { IndustriesCTA } from "./_components/IndustriesCTA";
+import { IndustriesHero } from "./_components/IndustriesHero/IndustriesHero";
+import { IndustriesShowcase } from "./_components/IndustriesShowcase/IndustriesShowcase";
+import { IndustriesExpertise } from "./_components/IndustriesExpertise/IndustriesExpertise";
+import { IndustriesCTA } from "./_components/IndustriesCTA/IndustriesCTA";
 
 export const metadata = {
   title: "Industries | NeoRecruits",
