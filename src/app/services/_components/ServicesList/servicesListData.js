@@ -1,20 +1,14 @@
-import {
-  Briefcase,
-  Users,
-  FileText,
-  Building2,
-  Laptop,
-  GraduationCap,
-  UserCheck,
-} from "lucide-react";
+import { Briefcase, Users, FileText, Building2, Laptop } from "lucide-react";
 
 export const services = [
   {
     id: "executive-search",
+    number: "01",
     title: "Executive Search",
     icon: Users,
     description:
-      "Identify and attract top-tier leadership talent to drive your organization's strategic vision forward.",
+      "At NeoRecruits, we specialize in identifying and securing top-tier executive talent for leadership roles. Our executive search methodology combines deep market intelligence with a personalized approach, ensuring we find leaders who not only have the right skills but also align with your organization's culture and strategic vision.",
+    image: "/service_executive_search.png",
     industries: [
       "Banking & Finance",
       "Technology",
@@ -25,10 +19,12 @@ export const services = [
   },
   {
     id: "permanent-staffing",
+    number: "02",
     title: "Permanent Staffing",
     icon: Briefcase,
     description:
-      "Long-term talent acquisition strategies focused on finding candidates who fit your culture and goals.",
+      "Long-term talent acquisition strategies focused on finding candidates who fit your culture and goals. We take a consultative approach to understand your unique requirements and deliver professionals who will contribute to your organization's success for years to come.",
+    image: "/service_permanent_staffing.png",
     industries: [
       "All Industries",
       "Technology",
@@ -40,10 +36,12 @@ export const services = [
   },
   {
     id: "contract-recruitment",
-    title: "Contract / Temporary Recruitment",
+    number: "03",
+    title: "Contract Staffing",
     icon: FileText,
     description:
-      "Flexible staffing solutions to meet short-term project demands and seasonal peaks with skilled professionals.",
+      "Short term, long term, globally, locally... NeoRecruits is your one-stop shop for contract staffing solutions. Our goal is to bring the best talent to your business through insightful search and selection techniques that save you time, costs and energy.",
+    image: "/service_contract_recruitment.png",
     industries: [
       "Technology",
       "Construction",
@@ -55,10 +53,12 @@ export const services = [
   },
   {
     id: "outsource-rpo",
+    number: "04",
     title: "Outsource Staffing / RPO",
     icon: Building2,
     description:
-      "End-to-end recruitment process outsourcing to streamline your hiring operations and reduce costs.",
+      "End-to-end recruitment process outsourcing to streamline your hiring operations and reduce costs. We become an extension of your HR team, handling everything from sourcing to onboarding while maintaining your employer brand standards.",
+    image: "/service_rpo.png",
     industries: [
       "Technology",
       "Finance",
@@ -70,10 +70,12 @@ export const services = [
   },
   {
     id: "remote-staffing",
+    number: "05",
     title: "Remote / Virtual Staffing",
     icon: Laptop,
     description:
-      "Build distributed teams with remote professionals skilled in working across time zones and cultures.",
+      "Build distributed teams with remote professionals skilled in working across time zones and cultures. We help you access global talent pools while ensuring seamless integration with your existing workflows and communication practices.",
+    image: "/service_executive_search.png",
     industries: [
       "Technology",
       "Digital Marketing",
@@ -82,36 +84,5 @@ export const services = [
       "IT Services",
     ],
     link: "/services/remote-staffing",
-  },
-  {
-    id: "technical-training",
-    title: "Technical Training Services",
-    icon: GraduationCap,
-    description:
-      "Comprehensive training programs to upskill your workforce and prepare them for emerging technologies.",
-    industries: [
-      "Technology",
-      "Engineering",
-      "Manufacturing",
-      "Healthcare",
-      "Finance",
-    ],
-    link: "/services/technical-training",
-  },
-  {
-    id: "manpower-supply",
-    title: "Manpower Supply Services",
-    icon: UserCheck,
-    description:
-      "Specialized manpower solutions for Saudi Arabia market, ensuring compliance with local regulations and cultural fit.",
-    industries: [
-      "Construction",
-      "Manufacturing",
-      "Hospitality",
-      "Retail",
-      "Logistics",
-    ],
-    link: "/services/manpower-supply",
-    region: "Saudi Arabia",
   },
 ];

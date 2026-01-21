@@ -1,4 +1,5 @@
 import { ServicesHero } from "./_components/ServicesHero/ServicesHero";
+import { ServicesHowWeWork } from "./_components/ServicesHowWeWork/ServicesHowWeWork";
 import { ServicesList } from "./_components/ServicesList/ServicesList";
 import { ServicesProcess } from "./_components/ServicesProcess/ServicesProcess";
 import { ServicesRequestForm } from "./_components/ServicesRequestForm/ServicesRequestForm";
@@ -13,6 +14,7 @@ export default function ServicesPage() {
   return (
     <main className="flex flex-col w-full">
       <ServicesHero />
+      <ServicesHowWeWork />
       <ServicesList />
       <ServicesProcess />
       <ServicesRequestForm />

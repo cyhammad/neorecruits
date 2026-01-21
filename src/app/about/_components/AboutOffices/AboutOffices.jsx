@@ -1,12 +1,20 @@
 "use client";
 
 import * as React from "react";
+import { motion, useInView } from "framer-motion";
 import { offices } from "./officesData";
 import { OfficeCard } from "./OfficeCard";
+import { LocationsMap } from "@/app/_components/Locations/LocationsMap";
 
 export function AboutOffices() {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 bg-[#0b2677] overflow-hidden">
+    <section
+      ref={ref}
+      className="relative py-12 sm:py-16 md:py-24 bg-[#0b2677] overflow-hidden"
+    >
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -17,7 +25,7 @@ export function AboutOffices() {
       <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <h2 className="tracking-tight text-white leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[22pt]">
+            <h2 className="tracking-tight text-white leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-[40px] font-black uppercase">
               Global Presence & Offices
             </h2>
             <p className="text-white/70 text-base sm:text-lg leading-relaxed font-medium">
@@ -25,6 +33,12 @@ export function AboutOffices() {
               Connect with our regional experts today.
             </p>
           </div>
+
+          {/* Map Integration */}
+          <div className="py-8">
+            <LocationsMap isInView={isInView} />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {offices.map((office, index) => (
               <OfficeCard key={index} office={office} />

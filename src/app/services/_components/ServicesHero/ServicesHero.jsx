@@ -4,7 +4,7 @@ import * as React from "react";
 
 export function ServicesHero() {
   return (
-    <section className="relative pt-16 h-[50vh] min-h-[400px] w-full flex flex-col overflow-hidden">
+    <section className="relative pt-24 sm:pt-28 h-[60vh] min-h-[450px] w-full flex flex-col overflow-hidden">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("/hero-1-v2.png")' }}

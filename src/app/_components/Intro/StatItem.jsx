@@ -13,21 +13,23 @@ export function StatItem({ stat, index, isInView }) {
         ...smoothTransition,
         delay: staggerDelay * (4 + index * 0.5),
       }}
-      className="space-y-1 group text-center sm:text-left"
+      className="flex items-center gap-4 sm:gap-6 group"
     >
-      <div className="flex items-center gap-2 mb-1 justify-center sm:justify-start">
+      <div className="flex-shrink-0">
         <stat.icon
           className={cn(
-            "w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity",
+            "w-8 h-8 sm:w-10 sm:h-10 opacity-80 group-hover:opacity-100 transition-opacity stroke-[1.2]",
             stat.color,
           )}
         />
-        <span className="text-xl sm:text-2xl font-bold tracking-tighter text-white">
+      </div>
+      <div className="flex flex-col justify-center">
+        <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-none mb-1">
           {stat.value}
         </span>
-      </div>
-      <div className="text-[10px] md:text-xs font-bold text-white/40 uppercase tracking-[0.15em] group-hover:text-white/60 transition-colors">
-        {stat.label}
+        <span className="text-[10px] sm:text-[12px] font-bold text-white/40 uppercase tracking-[0.18em] whitespace-nowrap group-hover:text-white/60 transition-colors">
+          {stat.label}
+        </span>
       </div>
     </motion.div>
   );

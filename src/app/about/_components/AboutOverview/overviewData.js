@@ -46,3 +46,18 @@ export const impactStats = [
     icon: Award,
   },
 ];
+
+export const regions = [
+  "Middle East & GCC",
+  "North America",
+  "Western Europe",
+  "South East Asia",
+  "Africa",
+];
+
+export const partnerships = [
+  "Fortune 500 Companies",
+  "Government Entities",
+  "Tech Giants",
+  "Startup Ecosystems",
+];

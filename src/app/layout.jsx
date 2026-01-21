@@ -23,6 +23,17 @@ import { ClientLayout } from "@/components/layout/ClientLayout";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="overflow-x-hidden">
+      <head>
+        <style>{`
+          ::-webkit-scrollbar {
+            display: none;
+          }
+          * {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
+      </head>
       <body
         className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased font-sans overflow-x-hidden`}
       >

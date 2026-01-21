@@ -21,8 +21,8 @@ export function Intro() {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          <IntroImages isInView={isInView} />
-          <IntroContent isInView={isInView} />
+          <IntroImages />
+          <IntroContent />
         </div>
         <IntroStats isInView={isInView} />
       </div>

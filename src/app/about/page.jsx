@@ -1,29 +1,123 @@
+"use client";
+
+import * as React from "react";
 import { AboutHero } from "./_components/AboutHero/AboutHero";
 import { AboutOverview } from "./_components/AboutOverview/AboutOverview";
-import { AboutRegions } from "./_components/AboutRegions/AboutRegions";
+import { AboutJourney } from "./_components/AboutJourney/AboutJourney";
 import { AboutCEOMessage } from "./_components/AboutCEOMessage/AboutCEOMessage";
 import { AboutMissionValues } from "./_components/AboutMissionValues/AboutMissionValues";
 import { AboutServices } from "./_components/AboutServices/AboutServices";
 import { AboutOffices } from "./_components/AboutOffices/AboutOffices";
 import { AboutCompliance } from "./_components/AboutCompliance/AboutCompliance";
-
-export const metadata = {
-  title: "About Us | NeoRecruits",
-  description:
-    "Learn more about NeoRecruits, our story, mission, values, global presence, and commitment to excellence in recruitment.",
-};
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function AboutPage() {
+  const [activeTab, setActiveTab] = React.useState("who-we-are");
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [activeTab]);
+
+  const tabs = [
+    { id: "who-we-are", label: "Who We Are" },
+    { id: "locations", label: "Locations" },
+    { id: "values", label: "Mission & Values" },
+    { id: "leadership", label: "Leadership" },
+    { id: "services", label: "Our Services" },
+    { id: "compliance", label: "Compliance" },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "who-we-are":
+        return (
+          <motion.div
+            key="who-we-are"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutOverview />
+            <AboutJourney />
+          </motion.div>
+        );
+      case "leadership":
+        return (
+          <motion.div
+            key="leadership"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutCEOMessage />
+          </motion.div>
+        );
+      case "values":
+        return (
+          <motion.div
+            key="values"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutMissionValues />
+          </motion.div>
+        );
+      case "services":
+        return (
+          <motion.div
+            key="services"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutServices />
+          </motion.div>
+        );
+      case "locations":
+        return (
+          <motion.div
+            key="locations"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutOffices />
+          </motion.div>
+        );
+      case "compliance":
+        return (
+          <motion.div
+            key="compliance"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutCompliance />
+          </motion.div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
-    <main className="flex flex-col w-full">
-      <AboutHero />
-      <AboutOverview />
-      <AboutRegions />
-      <AboutCEOMessage />
-      <AboutMissionValues />
-      <AboutServices />
-      <AboutOffices />
-      <AboutCompliance />
+    <main className="flex flex-col w-full min-h-screen bg-white">
+      <AboutHero
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        tabs={tabs}
+      />
+
+      <div className="flex-1 overflow-hidden">
+        <AnimatePresence mode="wait">{renderContent()}</AnimatePresence>
+      </div>
     </main>
   );
 }

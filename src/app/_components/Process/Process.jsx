@@ -29,7 +29,7 @@ export function Process() {
           className="space-y-3 sm:space-y-4 mb-10 sm:mb-16 md:mb-20"
         >
           <h2 className="tracking-tight text-white leading-tight text-xl sm:text-2xl md:text-3xl lg:text-[22pt]">
-            How We Work
+            Industry Expertise
           </h2>
           <motion.div
             initial={{ width: 0 }}

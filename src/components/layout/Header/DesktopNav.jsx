@@ -5,17 +5,14 @@ import { cn } from "@/lib/utils";
 
 export function DesktopNav({ navLinks }) {
   return (
-    <div className="hidden md:flex items-center gap-8">
+    <div className="flex items-center gap-7">
       {navLinks.map((link) => (
         <Link
           key={link.name}
           href={link.href}
-          className={cn(
-            "text-sm font-medium transition-colors duration-300",
-            "text-white hover:text-white/80",
-          )}
+          className="group flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-white/90 hover:text-white transition-colors"
         >
-          {link.name}
+          <span>{link.name}</span>
         </Link>
       ))}
     </div>

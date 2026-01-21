@@ -7,37 +7,56 @@ import { Button } from "@/components/ui/Button";
 
 export function ServiceCard({ service }) {
   return (
-    <div className="flex-[0_0_85%] sm:flex-[0_0_70%] md:flex-[0_0_48%] lg:flex-[0_0_38%] min-w-0 pl-4 sm:pl-6">
-      <div className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-[#e5e5e5] hover:border-[#9a01cd]/20 group">
-        <div className="relative h-[200px] sm:h-[240px] md:h-[280px] w-full overflow-hidden bg-gray-100">
+    <div className="flex-[0_0_85%] sm:flex-[0_0_70%] md:flex-[0_0_48%] lg:flex-[0_0_31%] min-w-0 pl-4 sm:pl-6 transform-gpu">
+      <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full flex flex-col group">
+        <div className="relative h-[220px] sm:h-[260px] w-full overflow-hidden bg-gray-100">
           <Image
             src={service.image}
             alt={service.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="object-cover transition-transform duration-1000 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-[#0b2677]/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b2677]/60 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+          <div className="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+            <service.icon className="w-6 h-6 text-white" />
+          </div>
         </div>
-        <div className="p-6 sm:p-8 flex flex-col grow space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#9a01cd]/10 flex items-center justify-center group-hover:bg-[#9a01cd] transition-colors duration-300">
-              <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#9a01cd] group-hover:text-white transition-colors duration-300" />
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#0b2677] group-hover:text-[#9a01cd] transition-colors duration-300">
+
+        <div className="p-8 sm:p-10 flex flex-col grow space-y-6">
+          <div className="space-y-2">
+            <h3 className="text-xl sm:text-2xl font-black text-[#0b2677] uppercase tracking-tight group-hover:text-[#9a01cd] transition-colors duration-300">
               {service.title}
             </h3>
+            <div className="w-12 h-1 bg-[#9a01cd] group-hover:w-20 transition-all duration-500 rounded-full" />
           </div>
-          <p className="text-sm sm:text-base text-[#0b2677]/70 leading-relaxed grow font-medium">
+
+          <p className="text-sm sm:text-base text-[#0b2677]/60 leading-relaxed grow font-medium">
             {service.description}
           </p>
+
           <Button
-            variant="outline"
-            size="sm"
-            className="rounded-lg border-2 border-[#0b2677]/20 text-[#0b2677] hover:bg-[#9a01cd] hover:border-[#9a01cd] hover:text-white transition-all duration-300 font-bold text-xs uppercase tracking-widest self-start"
+            className="h-11 sm:h-12 px-8 rounded-lg bg-[#0b2677] border-none text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase group/btn overflow-hidden relative transition-all duration-300 active:scale-[0.96] shadow-xl shadow-[#0b2677]/10"
             asChild
           >
-            <Link href={service.link}>
-              Learn More <ArrowRight className="ml-2 w-4 h-4" />
+            <Link
+              href={service.link}
+              className="flex items-center justify-center gap-3 relative z-10"
+            >
+              {/* High-Speed Radial Layer */}
+              <span className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none">
+                <span className="w-0 h-0 bg-[#9a01cd] rounded-full transition-all duration-500 ease-[0.16,1,0.3,1] group-hover/btn:w-[400%] group-hover/btn:pb-[400%]" />
+              </span>
+
+              {/* Text */}
+              <span className="relative z-20 transition-colors duration-300 group-hover/btn:text-white">
+                Learn More
+              </span>
+
+              <div className="relative z-20 w-5 h-5 overflow-hidden flex items-center justify-center">
+                <ArrowRight className="w-4 h-4 absolute transition-all duration-500 ease-[0.2,1,0.3,1] group-hover/btn:translate-x-10 group-hover/btn:opacity-0 text-white" />
+                <ArrowRight className="w-4 h-4 absolute -translate-x-10 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:opacity-100 text-white transition-all duration-500 ease-[0.2,1,0.3,1]" />
+              </div>
             </Link>
           </Button>
         </div>

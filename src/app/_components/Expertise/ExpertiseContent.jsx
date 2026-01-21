@@ -6,28 +6,54 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { smoothTransition, staggerDelay } from "./expertiseData";
 
+const glideTransition = {
+  duration: 1.2,
+  ease: [0.22, 1, 0.36, 1],
+};
+
+const staggerConfig = {
+  staggerChildren: 0.2,
+  delayChildren: 0.1,
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: staggerConfig,
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -40,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: glideTransition,
+  },
+};
+
 export function ExpertiseContent({ isInView }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -60 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
-      transition={{ ...smoothTransition, delay: staggerDelay * 0 }}
-      className="lg:col-span-4 flex flex-col justify-center space-y-4 sm:space-y-6 md:space-y-8"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+      className="lg:col-span-4 flex flex-col justify-center space-y-4 sm:space-y-6 md:space-y-8 will-change-transform"
     >
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ ...smoothTransition, delay: staggerDelay * 1 }}
-        className="tracking-tight text-[#0b2677] leading-tight text-xl sm:text-2xl md:text-3xl lg:text-[22pt]"
+        variants={itemVariants}
+        className="tracking-tight text-[#0b2677] leading-tight text-xl sm:text-2xl md:text-3xl lg:text-[22pt] font-black uppercase transform-gpu"
       >
-        Industry Expertise
+        How We Work
       </motion.h2>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ ...smoothTransition, delay: staggerDelay * 2 }}
-        className="space-y-4 sm:space-y-6 text-[#0b2677]/70 leading-relaxed text-sm sm:text-base"
+        variants={itemVariants}
+        className="space-y-4 sm:space-y-6 text-[#0b2677]/70 leading-relaxed text-sm sm:text-[13px] md:text-[14px] transform-gpu"
       >
         <p>
           NeoRecruits believes in employing the best. We are the best
@@ -41,19 +67,29 @@ export function ExpertiseContent({ isInView }) {
         </p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ ...smoothTransition, delay: staggerDelay * 3 }}
-        className="pt-2"
-      >
+      <motion.div variants={itemVariants} className="pt-2 transform-gpu">
         <Button
-          className="rounded-lg bg-[#9a01cd] hover:bg-[#9a01cd]/90 text-white h-11 sm:h-12 px-5 sm:px-6 text-xs font-bold tracking-widest uppercase w-full sm:w-auto"
+          className="h-11 sm:h-12 px-8 rounded-lg bg-[#9a01cd] border-none text-[11px] font-bold tracking-[0.15em] uppercase w-full sm:w-auto group overflow-hidden relative transition-all duration-200 active:scale-[0.96] shadow-xl shadow-[#9a01cd]/20 hover:shadow-[#9a01cd]/10"
           asChild
         >
-          <Link href="/services">
-            Explore
-            <ArrowIcon className="ml-2 w-4 h-4" />
+          <Link
+            href="/services"
+            className="flex items-center justify-center gap-2 relative z-10"
+          >
+            {/* High-Speed Radial Layer */}
+            <span className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none">
+              <span className="w-0 h-0 bg-[#0b2677] rounded-full transition-all duration-500 ease-[0.16,1,0.3,1] group-hover:w-[400%] group-hover:pb-[400%]" />
+            </span>
+
+            {/* Text */}
+            <span className="relative text-white group-hover:text-white transition-colors duration-300 ease-out">
+              Explore
+            </span>
+
+            <div className="relative w-5 h-5 overflow-hidden flex items-center justify-center">
+              <ArrowIcon className="w-4 h-4 absolute text-white group-hover:text-white transition-all duration-500 ease-[0.2,1,0.3,1] group-hover:translate-x-10 group-hover:opacity-0" />
+              <ArrowIcon className="w-4 h-4 absolute -translate-x-10 opacity-0 text-white transition-all duration-500 ease-[0.2,1,0.3,1] group-hover:translate-x-0 group-hover:opacity-100" />
+            </div>
           </Link>
         </Button>
       </motion.div>

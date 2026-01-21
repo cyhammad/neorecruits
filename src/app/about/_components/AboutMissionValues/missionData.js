@@ -3,26 +3,22 @@ import { ShieldCheck, Zap, Award, CheckCircle2 } from "lucide-react";
 export const values = [
   {
     title: "Integrity",
-    description:
-      "We conduct business with the highest ethical standards, maintaining transparency and building trust through honest, accountable actions in every interaction.",
+    description: "Acting Ethically and Taking Ownership",
     icon: ShieldCheck,
   },
   {
     title: "Speed",
-    description:
-      "We deliver rapid, efficient solutions without compromising quality, ensuring timely placements that meet your business needs and deadlines.",
+    description: "Efficient and Rapid Delivery",
     icon: Zap,
   },
   {
     title: "Quality",
-    description:
-      "We maintain rigorous standards in candidate assessment and placement, ensuring every match meets the highest quality benchmarks for success.",
+    description: "Excellence in Every Placement",
     icon: Award,
   },
   {
     title: "Compliance",
-    description:
-      "We adhere strictly to local and international regulations, ensuring all processes meet legal requirements and industry best practices.",
+    description: "Adhering to Global Standards",
     icon: CheckCircle2,
   },
 ];

@@ -1,93 +1,185 @@
 "use client";
 
 import * as React from "react";
-import { Search, Users, CheckCircle, UserCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
-const processSteps = [
-  {
-    id: 1,
-    title: "Discovery & Requirements",
+const serviceProcessData = {
+  "executive-search": {
+    title: "Driving Leadership Excellence Through Executive Search",
     description:
-      "We begin by understanding your business needs, culture, and specific requirements to develop a tailored recruitment strategy.",
-    icon: Search,
-    timeline: "24-48 Hours",
+      "NeoRecruits' executive search services provide strategic leadership solutions tailored to meet your unique business needs. From C-suite placement to board advisory, we manage the entire search lifecycle, ensuring precision, confidentiality, and measurable results.",
+    benefits: [
+      {
+        title: "Strategic Talent Mapping",
+        description:
+          "As a trusted executive search partner, we provide businesses with comprehensive market intelligence and talent mapping. By leveraging our extensive networks and research capabilities, we identify leaders who drive transformation and deliver lasting business impact.",
+      },
+      {
+        title: "Accelerated Placement",
+        description:
+          "Our executive-driven search services are designed to reduce your time-to-hire by deploying proven methodologies and deep market insights. We have a team of dedicated specialists who ensure that leadership positions are filled swiftly with exceptional candidates.",
+      },
+      {
+        title: "Cultural Alignment",
+        description:
+          "We go beyond resumes. Our executive search methodology includes rigorous cultural assessment with a deep understanding of organizational dynamics. The leaders you get not only meet technical requirements but fit seamlessly into your organizational culture and values.",
+      },
+    ],
   },
-  {
-    id: 2,
-    title: "Sourcing & Screening",
+  "permanent-staffing": {
+    title: "Building Lasting Teams Through Permanent Staffing",
     description:
-      "Our team leverages extensive networks and advanced screening techniques to identify qualified candidates who match your criteria.",
-    icon: Users,
-    timeline: "3-5 Business Days",
+      "NeoRecruits' permanent staffing services provide long-term talent solutions tailored to meet your unique business needs. From entry-level to senior positions, we manage the entire hiring lifecycle, ensuring quality, cultural fit, and measurable results.",
+    benefits: [
+      {
+        title: "Quality Candidates",
+        description:
+          "As a trusted permanent staffing partner, we provide businesses with thoroughly vetted candidates. By leveraging comprehensive screening processes and reference checks, we identify professionals who drive performance and deliver lasting value.",
+      },
+      {
+        title: "Reduced Time-to-Hire",
+        description:
+          "Our staffing services are designed to accelerate your hiring timeline by deploying efficient processes and pre-qualified talent pools. We have dedicated recruiters who ensure that positions are filled quickly with quality candidates.",
+      },
+      {
+        title: "Cultural Fit Focus",
+        description:
+          "We prioritize cultural alignment in every placement. Our methodology includes behavioral assessments and value alignment checks. The candidates you get not only meet job requirements but integrate seamlessly into your team dynamics.",
+      },
+    ],
   },
-  {
-    id: 3,
-    title: "Interview & Assessment",
+  "contract-recruitment": {
+    title: "Driving Business Impact Through Expert Staffing Services",
     description:
-      "We conduct thorough interviews and assessments to ensure candidates meet both technical and cultural fit requirements.",
-    icon: CheckCircle,
-    timeline: "Flexible Schedule",
+      "NeoRecruits' contract staffing services provide end-to-end, scalable recruitment solutions tailored to meet your unique business needs. From talent sourcing to onboarding, we manage the entire recruitment lifecycle, ensuring efficiency, consistency, and measurable results.",
+    benefits: [
+      {
+        title: "Cost Efficiency",
+        description:
+          "As a trusted outsourcing company, we are here to provide businesses with strategic recruitment process outsourcing to reduce operational overhead. By managing hiring processes and using advanced recruitment technologies, our model helps companies save 30% to 50% compared to traditional hiring methods, maximising ROI and increasing business outcomes.",
+      },
+      {
+        title: "Accelerated Hiring",
+        description:
+          "Our expert-driven services are designed to reduce your time-to-fill and improve time-to-hire by deploying scalable hiring frameworks and deep market insights. We have a team of dedicated specialists who ensure that important positions are filled swiftly and efficiently with high-caliber candidates so your business can never miss a beat.",
+      },
+      {
+        title: "Superior Candidate Quality",
+        description:
+          "We always go beyond resumes. Our recruitment process outsourcing methodology includes data-driven screening with a deep understanding of the industry dynamics and cultural intent. And the results you get are top-tier talent that not only meets technical requirements but fits easily into your organisational culture and values.",
+      },
+    ],
   },
-  {
-    id: 4,
-    title: "Placement & Support",
+  "outsource-rpo": {
+    title: "Driving Business Impact Through Expert RPO Services",
     description:
-      "We facilitate smooth onboarding and provide ongoing support to ensure successful integration and long-term retention.",
-    icon: UserCheck,
-    timeline: "Ongoing Support",
+      "NeoRecruits' RPO services provide end-to-end, scalable recruitment solutions tailored to meet your unique business needs. From talent sourcing to onboarding, we manage the entire recruitment lifecycle, ensuring efficiency, consistency, and measurable results.",
+    benefits: [
+      {
+        title: "Cost Efficiency",
+        description:
+          "As a trusted outsourcing company, we are here to provide businesses with strategic recruitment process outsourcing to reduce operational overhead. By managing hiring processes and using advanced recruitment technologies, our RPO model helps companies save 30% to 50% compared to traditional hiring methods, maximising ROI and increasing business outcomes.",
+      },
+      {
+        title: "Accelerated Hiring",
+        description:
+          "Our expert-driven RPO services are designed to reduce your time-to-fill and improve time-to-hire by deploying scalable hiring frameworks and deep market insights. We have a team of dedicated RPO specialists who ensure that important positions are filled swiftly and efficiently with high-caliber candidates so your business can never miss a beat.",
+      },
+      {
+        title: "Superior Candidate Quality",
+        description:
+          "We always go beyond resumes. Our recruitment process outsourcing methodology includes data-driven screening with a deep understanding of the industry dynamics and cultural intent. And the results you get are top-tier talent that not only meets technical requirements but fits easily into your organisational culture and values.",
+      },
+    ],
   },
-];
+  "remote-staffing": {
+    title: "Enabling Global Teams Through Remote Staffing",
+    description:
+      "NeoRecruits' remote staffing services provide distributed workforce solutions tailored to meet your unique business needs. From talent sourcing to virtual onboarding, we manage the entire remote hiring lifecycle, ensuring productivity, collaboration, and measurable results.",
+    benefits: [
+      {
+        title: "Global Talent Access",
+        description:
+          "As a trusted remote staffing partner, we provide businesses with access to vetted professionals across 40+ countries. By leveraging our global networks and remote work expertise, we identify talent that delivers exceptional performance regardless of location.",
+      },
+      {
+        title: "Seamless Integration",
+        description:
+          "Our remote staffing services are designed to ensure smooth integration of virtual team members. We provide onboarding support, tooling guidance, and communication frameworks so remote hires hit the ground running from day one.",
+      },
+      {
+        title: "Productivity Focus",
+        description:
+          "We prioritize candidates with proven remote work capabilities. Our methodology includes assessing self-management skills, communication abilities, and cultural adaptability. The remote professionals you get deliver consistent results across time zones.",
+      },
+    ],
+  },
+};
+
+const glideTransition = {
+  duration: 1.2,
+  ease: [0.22, 1, 0.36, 1],
+};
+
+const viewportConfig = {
+  once: false,
+  amount: 0.2,
+};
 
 export function ServiceDetailProcess({ slug }) {
+  const data =
+    serviceProcessData[slug] || serviceProcessData["contract-recruitment"];
+
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 bg-[#f4f4f4]">
+    <section className="relative py-16 sm:py-24 bg-[#f8f8f8] overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 md:px-10">
-        <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <h2 className="tracking-tight text-[#0b2677] leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[22pt]">
-              Our Process
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportConfig}
+            transition={glideTransition}
+            className="text-center space-y-6 mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0b2677] uppercase tracking-tight leading-tight">
+              {data.title}
             </h2>
-            <p className="text-[#0b2677]/70 text-base sm:text-lg leading-relaxed">
-              A systematic approach ensuring the right talent, at the right time,
-              for your organization.
+            <p className="text-[#0b2677]/70 text-sm sm:text-base leading-relaxed font-medium max-w-4xl mx-auto">
+              {data.description}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {processSteps.map((step, index) => (
-              <div
-                key={step.id}
-                className="relative group"
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+            {data.benefits.map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewportConfig}
+                transition={{ ...glideTransition, delay: idx * 0.1 }}
+                className="relative px-6 sm:px-8 py-8"
               >
-                <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col space-y-4 border border-[#e5e5e5] hover:border-[#9a01cd]/20">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#9a01cd]/10 flex items-center justify-center group-hover:bg-[#9a01cd] transition-colors duration-300">
-                      <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#9a01cd] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <span className="text-4xl sm:text-5xl font-bold text-[#0b2677]/5 group-hover:text-[#9a01cd]/10 transition-colors duration-300">
-                      {String(step.id).padStart(2, "0")}
-                    </span>
-                  </div>
+                {/* Gradient Side Borders (Desktop) */}
+                {idx > 0 && (
+                  <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#9a01cd]/40 to-transparent hidden md:block" />
+                )}
 
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0b2677] group-hover:text-[#9a01cd] transition-colors duration-300">
-                    {step.title}
+                {/* Gradient Top Border (Mobile) */}
+                {idx > 0 && (
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9a01cd]/40 to-transparent md:hidden" />
+                )}
+
+                <div className="space-y-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0b2677]">
+                    {benefit.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-[#0b2677]/70 leading-relaxed grow">
-                    {step.description}
+                  <p className="text-[#0b2677]/70 text-sm leading-relaxed font-medium">
+                    {benefit.description}
                   </p>
-                  <div className="pt-2 text-xs sm:text-sm font-semibold text-[#9a01cd] uppercase tracking-wider">
-                    {step.timeline}
-                  </div>
-
-                  {/* Connector Line (hidden on last item) */}
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-[#e5e5e5] transform translate-x-0">
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-8 border-l-[#e5e5e5] border-t-4 border-t-transparent border-b-4 border-b-transparent" />
-                    </div>
-                  )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

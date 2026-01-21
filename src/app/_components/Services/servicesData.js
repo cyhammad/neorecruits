@@ -38,20 +38,4 @@ export const servicesData = [
       "Long-term talent acquisition strategies focused on finding candidates who fit your culture and goals.",
     link: "/services/permanent-recruitment",
   },
-  {
-    id: "item-4",
-    title: "Payroll",
-    icon: ClipboardCheck,
-    description:
-      "Comprehensive payroll management services ensuring compliance, accuracy, and timely processing for your workforce.",
-    link: "/services/payroll",
-  },
-  {
-    id: "item-5",
-    title: "Recruitment Campaigns",
-    icon: BarChart3,
-    description:
-      "Targeted, high-volume recruitment drives tailored to launch new divisions or scale operations rapidly.",
-    link: "/services/recruitment-campaigns",
-  },
 ];

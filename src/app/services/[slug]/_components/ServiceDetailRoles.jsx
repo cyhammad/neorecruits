@@ -1,124 +1,200 @@
 "use client";
 
 import * as React from "react";
-import { Briefcase, MapPin, DollarSign, Clock, Users } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
-const rolesByService = {
-  "executive-search": [
-    { title: "CEO / Managing Director", location: "Dubai, UAE", salary: "$150K - $300K" },
-    { title: "CFO / Finance Director", location: "Riyadh, Saudi Arabia", salary: "$120K - $250K" },
-    { title: "CTO / Technology Director", location: "Dubai, UAE", salary: "$140K - $280K" },
-    { title: "VP of Operations", location: "Abu Dhabi, UAE", salary: "$130K - $220K" },
-  ],
-  "permanent-staffing": [
-    { title: "Senior Software Engineer", location: "Dubai, UAE", salary: "$80K - $120K" },
-    { title: "Financial Analyst", location: "Riyadh, Saudi Arabia", salary: "$60K - $90K" },
-    { title: "Project Manager", location: "Abu Dhabi, UAE", salary: "$70K - $110K" },
-    { title: "Marketing Manager", location: "Dubai, UAE", salary: "$65K - $95K" },
-  ],
-  "contract-recruitment": [
-    { title: "Contract Developer", location: "Remote / Dubai", salary: "$50/hour" },
-    { title: "Temporary Finance Manager", location: "Riyadh, Saudi Arabia", salary: "$70/hour" },
-    { title: "Project Consultant", location: "Abu Dhabi, UAE", salary: "$80/hour" },
-  ],
-  "outsource-rpo": [
-    { title: "Volume Recruitment Programs", location: "Multiple Locations", salary: "Custom Pricing" },
-    { title: "Recruitment Team Setup", location: "Client Site / Remote", salary: "Custom Pricing" },
-  ],
-  "remote-staffing": [
-    { title: "Remote Developer", location: "Remote", salary: "$60K - $100K" },
-    { title: "Virtual Assistant", location: "Remote", salary: "$30K - $50K" },
-    { title: "Remote Project Manager", location: "Remote", salary: "$70K - $110K" },
-  ],
-  "technical-training": [
-    { title: "AI/ML Training Program", location: "Dubai, UAE", duration: "6 weeks" },
-    { title: "Cloud Architecture Course", location: "Riyadh, Saudi Arabia", duration: "4 weeks" },
-    { title: "DevOps Training", location: "Remote", duration: "8 weeks" },
-  ],
-  "manpower-supply": [
-    { title: "Construction Workers", location: "Saudi Arabia", quantity: "50-200" },
-    { title: "Manufacturing Staff", location: "Saudi Arabia", quantity: "100-500" },
-    { title: "Hospitality Staff", location: "Saudi Arabia", quantity: "20-100" },
-  ],
+const serviceInsightsData = {
+  "executive-search": {
+    insights: [
+      {
+        date: "15 Jan 2025",
+        title: "NeoRecruits Successfully Places CEO for Leading Tech Firm",
+        excerpt:
+          "A different perspective on executive search excellence. Our team delivered exceptional results for a Fortune 500 client seeking transformational leadership.",
+        image: "/service_executive_search.png",
+        link: "/insights/executive-search-success",
+        featured: true,
+      },
+      {
+        date: "08 Jan 2025",
+        title: "The Future of Executive Leadership in the Digital Age",
+        excerpt:
+          "Insights on how digital transformation is reshaping the C-suite and what it means for executive recruitment strategies.",
+        image: "/service_permanent_staffing.png",
+        link: "/insights/digital-leadership",
+        featured: false,
+      },
+    ],
+  },
+  "permanent-staffing": {
+    insights: [
+      {
+        date: "12 Jan 2025",
+        title: "Building High-Performance Teams Through Strategic Hiring",
+        excerpt:
+          "Our approach to permanent staffing that delivers 95% retention rates and exceptional cultural fit across industries.",
+        image: "/service_permanent_staffing.png",
+        link: "/insights/strategic-hiring",
+        featured: true,
+      },
+      {
+        date: "05 Jan 2025",
+        title: "Talent Acquisition Trends to Watch in 2025",
+        excerpt:
+          "Key insights on the evolving permanent staffing landscape and how organizations can stay ahead of the competition.",
+        image: "/service_executive_search.png",
+        link: "/insights/talent-trends-2025",
+        featured: false,
+      },
+    ],
+  },
+  "contract-recruitment": {
+    insights: [
+      {
+        date: "26 Sep 2024",
+        title:
+          "NeoRecruits Wins Two Awards at the Regional Staffing Excellence Awards 2024",
+        excerpt:
+          "Recognition for our outstanding contract staffing solutions and commitment to client success across the region.",
+        image: "/service_contract_recruitment.png",
+        link: "/insights/staffing-awards-2024",
+        featured: true,
+      },
+      {
+        date: "09 Sep 2024",
+        title: "Delivering Contract Staffing Solutions Across MENA",
+        excerpt:
+          "A different perspective on delivering contract staffing solutions across the MENA region. Building agile workforces.",
+        image: "/service_rpo.png",
+        link: "/insights/contract-staffing-mena",
+        featured: false,
+      },
+    ],
+  },
+  "outsource-rpo": {
+    insights: [
+      {
+        date: "26 Sep 2024",
+        title:
+          "NeoRecruits Wins Two Awards at the Gulf Capital SME Awards 2024",
+        excerpt:
+          "Recognition for our outstanding RPO solutions and commitment to client success across the GCC region.",
+        image: "/service_contract_recruitment.png",
+        link: "/insights/sme-awards-2024",
+        featured: true,
+      },
+      {
+        date: "09 Sep 2024",
+        title:
+          "Delivering Recruitment Process Outsourcing (RPO) Solutions Across EMEA",
+        excerpt:
+          "A different perspective on delivering RPO solutions across the EMEA region. Twenty years ago, recruitment was fundamentally different.",
+        image: "/service_rpo.png",
+        link: "/insights/rpo-emea",
+        featured: false,
+      },
+    ],
+  },
+  "remote-staffing": {
+    insights: [
+      {
+        date: "20 Jan 2025",
+        title: "Building Distributed Teams: Lessons from Global Organizations",
+        excerpt:
+          "How leading companies are leveraging remote staffing to access global talent and drive innovation.",
+        image: "/service_executive_search.png",
+        link: "/insights/distributed-teams",
+        featured: true,
+      },
+      {
+        date: "10 Jan 2025",
+        title: "Remote Work Infrastructure: Best Practices for 2025",
+        excerpt:
+          "Essential tools, processes, and strategies for building productive remote teams across time zones.",
+        image: "/service_permanent_staffing.png",
+        link: "/insights/remote-work-2025",
+        featured: false,
+      },
+    ],
+  },
+};
+
+const glideTransition = {
+  duration: 1.2,
+  ease: [0.22, 1, 0.36, 1],
+};
+
+const viewportConfig = {
+  once: false,
+  amount: 0.2,
 };
 
 export function ServiceDetailRoles({ slug }) {
-  const roles = rolesByService[slug] || rolesByService["permanent-staffing"];
+  const data =
+    serviceInsightsData[slug] || serviceInsightsData["outsource-rpo"];
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 bg-white">
+    <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 md:px-10">
-        <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <h2 className="tracking-tight text-[#0b2677] leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[22pt]">
-              Available Roles & Positions
-            </h2>
-            <p className="text-[#0b2677]/70 text-base sm:text-lg leading-relaxed">
-              Examples of positions we typically fill through this service. This
-              list is not exhaustive and we can source for any role within your
-              requirements.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {roles.map((role, index) => (
-              <div
-                key={index}
-                className="bg-[#f4f4f4] rounded-xl p-6 sm:p-8 border border-[#e5e5e5] hover:border-[#9a01cd]/20 hover:shadow-lg transition-all duration-300 group"
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {data.insights.map((insight, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewportConfig}
+                transition={{ ...glideTransition, delay: idx * 0.1 }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-[#9a01cd]" />
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0b2677] group-hover:text-[#9a01cd] transition-colors duration-300">
-                    {role.title}
-                  </h3>
-                </div>
-                <div className="space-y-3 text-sm sm:text-base">
-                  <div className="flex items-center gap-2 text-[#0b2677]/70">
-                    <MapPin className="w-4 h-4 text-[#9a01cd]" />
-                    <span>{role.location}</span>
-                  </div>
-                  {role.salary && (
-                    <div className="flex items-center gap-2 text-[#0b2677]/70">
-                      <DollarSign className="w-4 h-4 text-[#9a01cd]" />
-                      <span>{role.salary}</span>
+                <Link href={insight.link} className="group block">
+                  {insight.featured ? (
+                    /* Featured Card - Large Image with Overlay Text */
+                    <div className="relative h-[350px] sm:h-[400px] rounded-xl overflow-hidden">
+                      <Image
+                        src={insight.image}
+                        alt={insight.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+                        <span className="text-[#9a01cd] text-sm font-bold">
+                          {insight.date}
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight group-hover:text-[#9a01cd] transition-colors">
+                          {insight.title}
+                        </h3>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Standard Card - Image on Top with Text Below */
+                    <div className="space-y-4">
+                      <div className="relative h-[200px] sm:h-[240px] rounded-xl overflow-hidden">
+                        <Image
+                          src={insight.image}
+                          alt={insight.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <span className="text-[#9a01cd] text-sm font-bold">
+                          {insight.date}
+                        </span>
+                        <h3 className="text-lg sm:text-xl font-bold text-[#0b2677] leading-tight group-hover:text-[#9a01cd] transition-colors">
+                          {insight.title}
+                        </h3>
+                        <p className="text-[#0b2677]/70 text-sm leading-relaxed font-medium">
+                          {insight.excerpt}
+                        </p>
+                      </div>
                     </div>
                   )}
-                  {role.duration && (
-                    <div className="flex items-center gap-2 text-[#0b2677]/70">
-                      <Clock className="w-4 h-4 text-[#9a01cd]" />
-                      <span>{role.duration}</span>
-                    </div>
-                  )}
-                  {role.quantity && (
-                    <div className="flex items-center gap-2 text-[#0b2677]/70">
-                      <Users className="w-4 h-4 text-[#9a01cd]" />
-                      <span>Quantity: {role.quantity}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
+                </Link>
+              </motion.div>
             ))}
-          </div>
-
-          <div className="text-center pt-4">
-            <p className="text-[#0b2677]/60 text-sm sm:text-base mb-4">
-              Don't see the role you're looking for? We can source for any position.
-            </p>
-            <Button
-              variant="outline"
-              className="rounded-lg border-2 border-[#0b2677]/20 text-[#0b2677] hover:bg-[#0b2677] hover:text-white transition-all duration-300 font-bold text-xs uppercase tracking-widest"
-              asChild
-            >
-              <Link href="/services#request-talent">
-                Request Custom Role
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
