@@ -13,6 +13,7 @@ export const offices = [
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     lat: 25.2048,
     lng: 55.2708,
+    image: "/hero-3.png",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ export const offices = [
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     lat: 24.7136,
     lng: 46.6753,
+    image: "/hero-1.png",
   },
   {
     id: 3,
@@ -31,8 +33,9 @@ export const offices = [
     address: "ADGM Square, Al Maryah Island, Abu Dhabi",
     phone: "+971 2 444 5566",
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
-    lat: 24.4539,
-    lng: 54.3773,
+    lat: 23.5,
+    lng: 53.0,
+    image: "/hero-2.png",
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ export const offices = [
     hours: "Mon - Fri: 9:00 AM - 5:30 PM",
     lat: 51.5074,
     lng: -0.1278,
+    image: "/hero-3.png",
   },
 ];
 

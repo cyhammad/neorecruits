@@ -19,7 +19,7 @@ export function IntroStats({ isInView }) {
             <StatItem stat={stat} index={index} isInView={isInView} />
           </div>
           {index < stats.length - 1 && (
-            <div className="hidden lg:block w-[2.5px] h-24 bg-gradient-to-b from-transparent via-white/30 to-transparent flex-shrink-0" />
+            <div className="hidden lg:block w-[2.5px] h-24 bg-gradient-to-b from-transparent via-gray-300 to-transparent flex-shrink-0" />
           )}
         </React.Fragment>
       ))}

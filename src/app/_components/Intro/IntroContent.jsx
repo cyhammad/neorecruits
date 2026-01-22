@@ -60,7 +60,7 @@ export function IntroContent() {
       {/* STEP 1: Heading */}
       <motion.h2
         variants={itemVariants}
-        className={`tracking-tight text-white leading-tight text-xl sm:text-2xl md:text-3xl lg:text-[22pt] ${transformGpu}`}
+        className={`tracking-tight text-[#0b2677] leading-tight text-xl sm:text-2xl md:text-3xl lg:text-[22pt] ${transformGpu}`}
       >
         We build leading edge infrastructure within your organisation
       </motion.h2>
@@ -68,7 +68,7 @@ export function IntroContent() {
       {/* STEP 2: Text Body */}
       <motion.div
         variants={itemVariants}
-        className={`space-y-3 sm:space-y-4 text-white/70 leading-relaxed text-sm sm:text-base ${transformGpu}`}
+        className={`space-y-3 sm:space-y-4 text-gray-600 leading-relaxed text-sm sm:text-base ${transformGpu}`}
       >
         <p>
           NeoRecruits is considered the best recruitment agency in the region
@@ -85,14 +85,14 @@ export function IntroContent() {
       <motion.div variants={itemVariants} className={`pt-2 ${transformGpu}`}>
         <Link
           href="/about"
-          className="group relative h-11 sm:h-12 w-fit px-8 rounded-lg bg-white text-black border-none flex items-center gap-3 overflow-hidden transition-all text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase shadow-2xl shadow-[#9a01cd]/20 active:scale-95"
+          className="group relative h-11 sm:h-12 w-fit px-8 rounded-lg bg-[#0b2677] text-white border-none flex items-center gap-3 overflow-hidden transition-all text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase shadow-2xl shadow-[#9a01cd]/20 active:scale-95"
         >
           {/* Fast Radial Expansion */}
           <span className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
             <span className="w-0 h-0 bg-[#9A01CD] rounded-full transition-all duration-400 ease-[0.16,1,0.3,1] group-hover:w-[400%] group-hover:pb-[400%]" />
           </span>
 
-          <span className="relative z-20 transition-colors duration-300 group-hover:text-white">
+          <span className="relative z-20 transition-colors duration-300 text-white">
             Learn More
           </span>
 

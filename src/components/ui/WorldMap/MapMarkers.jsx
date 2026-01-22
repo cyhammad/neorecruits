@@ -22,7 +22,7 @@ export function MapMarkers({
             className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20"
             style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
             onMouseEnter={() => onHover(location)}
-            onMouseLeave={onLeave}
+            onMouseLeave={undefined}
           >
             <motion.div
               className="absolute rounded-full"

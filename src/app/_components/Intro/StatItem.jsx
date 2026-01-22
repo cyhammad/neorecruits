@@ -24,10 +24,10 @@ export function StatItem({ stat, index, isInView }) {
         />
       </div>
       <div className="flex flex-col justify-center">
-        <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-none mb-1">
+        <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0b2677] leading-none mb-1">
           {stat.value}
         </span>
-        <span className="text-[10px] sm:text-[12px] font-bold text-white/40 uppercase tracking-[0.18em] whitespace-nowrap group-hover:text-white/60 transition-colors">
+        <span className="text-[10px] sm:text-[12px] font-bold text-gray-500 uppercase tracking-[0.18em] whitespace-nowrap group-hover:text-gray-700 transition-colors">
           {stat.label}
         </span>
       </div>

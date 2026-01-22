@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock } from "lucide-react";
+import Image from "next/image";
 
 export function LocationPopup({ location, position }) {
   const isFarRight = position.x > 70;
@@ -21,7 +22,17 @@ export function LocationPopup({ location, position }) {
         transform: `translate(${isFarRight ? "-100%" : isFarLeft ? "10px" : "-50%"}, ${isBottomHalf ? "calc(-100% - 30px)" : "30px"})`,
       }}
     >
-      <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-5 min-w-[280px] max-w-[320px]">
+      <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-4 min-w-[280px] max-w-[320px]">
+        {location.image && (
+          <div className="relative w-full h-32 mb-4 rounded-lg overflow-hidden shrink-0">
+            <Image
+              src={location.image}
+              alt={`${location.city} Office`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#9a01cd] mb-1">
