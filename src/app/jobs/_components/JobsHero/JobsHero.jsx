@@ -1,26 +1,39 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
 
 export function JobsHero() {
   return (
-    <section className="relative pt-16 h-[45vh] min-h-[350px] w-full flex flex-col overflow-hidden">
+    <section className="relative pt-24 sm:pt-28 h-[65vh] min-h-[550px] w-full flex flex-col overflow-hidden">
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
         style={{ backgroundImage: 'url("/job-office.png")' }}
       >
-        <div className="absolute inset-0 bg-[#0b2677]/70" />
+        <div className="absolute inset-0 bg-[#0b2677]/80" />
         <div className="absolute inset-0 bg-linear-to-b from-[#0b2677]/40 via-transparent to-[#0b2677]" />
       </div>
-      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 flex-1 flex flex-col justify-center">
-        <div className="max-w-3xl space-y-4 sm:space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase">
-            Find Your Dream Job
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl font-medium">
-            Discover exciting career opportunities across industries. Connect
-            with top employers and find your next role.
-          </p>
+
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 flex-1 flex flex-col pt-24 pb-12">
+        <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center">
+          <div className="max-w-4xl space-y-4 sm:space-y-6 mb-12">
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-none"
+            >
+              Find Your Dream Job
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg sm:text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl font-medium"
+            >
+              Discover exciting career opportunities across industries. Connect
+              with top employers and find your next role.
+            </motion.p>
+          </div>
         </div>
       </div>
     </section>

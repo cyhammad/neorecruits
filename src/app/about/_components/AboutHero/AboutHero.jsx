@@ -12,7 +12,7 @@ export function AboutHero({ activeTab, setActiveTab, tabs }) {
       {/* Background with Overlay */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
-        style={{ backgroundImage: 'url("/about-hero-bg.png")' }}
+        style={{ backgroundImage: 'url("/hero-3.png")' }}
       >
         <div className="absolute inset-0 bg-[#0b2677]/80" />
         <div className="absolute inset-0 bg-linear-to-b from-[#0b2677]/40 via-transparent to-[#0b2677]" />
