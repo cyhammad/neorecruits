@@ -4,39 +4,29 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function NavButton({ direction, onClick }) {
+export function NavButton({ direction, onClick, isStatic = false }) {
   const isPrev = direction === "prev";
   const Icon = isPrev ? ChevronLeft : ChevronRight;
 
   return (
     <div
       className={cn(
-        "absolute top-1/2 -translate-y-1/2 z-20",
-        isPrev
-          ? "left-0 sm:-left-2 lg:-left-4"
-          : "right-0 sm:-right-2 lg:-right-4",
+        !isStatic && "absolute top-1/2 -translate-y-1/2 z-20",
+        !isStatic && (isPrev ? "left-4" : "right-4"),
       )}
     >
       <motion.button
         onClick={onClick}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className={cn(
-          "w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg backdrop-blur-sm",
+          "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
           isPrev
-            ? "bg-white border-2 border-gray-200 text-gray-600 hover:border-[#0b2677] hover:text-[#0b2677]"
-            : "text-white shadow-[#0b2677]/30",
+            ? "bg-white border border-gray-100 text-[#0b2677] hover:bg-[#0b2677] hover:text-white"
+            : "bg-[#0b2677] text-white hover:bg-[#0b2677]/90",
         )}
-        style={
-          !isPrev
-            ? {
-                backgroundImage:
-                  "linear-gradient(to bottom right, #0b2677, #2165b8)",
-              }
-            : {}
-        }
       >
-        <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+        <Icon className="w-5 h-5" />
       </motion.button>
     </div>
   );

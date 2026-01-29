@@ -35,15 +35,12 @@ export function TestimonialCarousel({ isInView }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 60 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
+      initial={{ opacity: 0, x: 20 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
       transition={{ ...smoothTransition, delay: staggerDelay * 1.5 }}
-      className="lg:col-span-7 relative pl-0 lg:pl-10"
+      className="lg:col-span-7 relative group"
     >
-      <NavButton direction="prev" onClick={scrollPrev} />
-      <NavButton direction="next" onClick={scrollNext} />
-
-      <div className="overflow-hidden px-2 sm:px-4 py-6 sm:py-8" ref={emblaRef}>
+      <div className="overflow-hidden -m-4 p-4 sm:-m-10 sm:p-10" ref={emblaRef}>
         <div className="flex">
           {testimonials.map((item, index) => (
             <div key={item.id} className="flex-[0_0_100%] min-w-0 px-2 sm:px-4">
@@ -57,11 +54,17 @@ export function TestimonialCarousel({ isInView }) {
         </div>
       </div>
 
-      <CarouselPagination
-        testimonials={testimonials}
-        selectedIndex={selectedIndex}
-        emblaApi={emblaApi}
-      />
+      <div className="flex items-center justify-between mt-6">
+        <div className="flex gap-2">
+          <NavButton direction="prev" onClick={scrollPrev} isStatic />
+          <NavButton direction="next" onClick={scrollNext} isStatic />
+        </div>
+        <CarouselPagination
+          testimonials={testimonials}
+          selectedIndex={selectedIndex}
+          emblaApi={emblaApi}
+        />
+      </div>
     </motion.div>
   );
 }

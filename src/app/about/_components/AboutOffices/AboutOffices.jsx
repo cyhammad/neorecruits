@@ -1,21 +1,15 @@
 "use client";
 
 import * as React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { offices } from "./officesData";
 import { OfficeCard } from "./OfficeCard";
-import { LocationsMap } from "@/app/_components/Locations/LocationsMap";
 
 export function AboutOffices() {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
   const [activeLocationId, setActiveLocationId] = React.useState(1);
 
   return (
-    <section
-      ref={ref}
-      className="relative py-12 sm:py-16 md:py-24 bg-white overflow-hidden"
-    >
+    <section className="relative py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -35,17 +29,6 @@ export function AboutOffices() {
             </p>
           </div>
 
-          {/* Map Integration */}
-          <div className="w-full">
-            <LocationsMap
-              isInView={isInView}
-              theme="light"
-              fullWidth={true}
-              activeId={activeLocationId}
-              onActiveIdChange={setActiveLocationId}
-            />
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {offices.map((office, index) => (
               <OfficeCard
@@ -54,7 +37,6 @@ export function AboutOffices() {
                 isActive={office.id === activeLocationId}
                 onSelect={() => {
                   setActiveLocationId(office.id);
-                  // Optional: scroll into view or map center logic handled by map
                 }}
               />
             ))}

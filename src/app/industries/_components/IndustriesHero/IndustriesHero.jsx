@@ -22,7 +22,7 @@ export function IndustriesHero() {
               animate={{ opacity: 1, x: 0 }}
               className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-none"
             >
-              Industries We Serve
+              Industries
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}

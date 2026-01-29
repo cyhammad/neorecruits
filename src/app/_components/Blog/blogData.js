@@ -8,23 +8,24 @@ export const staggerDelay = 0.2;
 export const posts = [
   {
     id: 1,
-    title: "The Future of AI in Executive Search",
+    title: "NeoRecruits continues GCC expansion with new office in KSA",
     excerpt:
-      "How artificial intelligence is reshaping the way we identify and vet top-tier leadership talent across global markets.",
-    category: "Technology",
-    readTime: "5 min read",
-    image: "/expertise-tech.png",
-    date: "Oct 12, 2025",
+      "Our strategic growth in the region reaches a new milestone with the opening of our Riyadh headquarters, dedicated to serving the Kingdom's Vision 2030.",
+    category: "Corporate",
+    readTime: "3 min read",
+    image: "/how_we_work_2.png",
+    date: "17 May 2023",
+    variant: "featured",
   },
   {
     id: 2,
-    title: "Building Resilient Teams in Remote Era",
+    title: "NeoRecruits acquires Parisima Talent as part of an expansion plan",
     excerpt:
-      "Strategies for fostering culture, collaboration, and productivity when your workforce is distributed across continents.",
-    category: "Leadership",
-    readTime: "7 min read",
-    image: "/job-office.png",
-    date: "Sep 28, 2025",
+      "NeoRecruits, the leading provider of integrated People and Environmental solutions, today announced that it has acquired Parisima Talent Ltd, an award-winning strategic talent acquisition business.",
+    category: "Acquisition",
+    readTime: "4 min read",
+    image: "/service_executive_search.png",
+    date: "12 Jul 2022",
   },
   {
     id: 3,
@@ -34,6 +35,16 @@ export const posts = [
     category: "Market Insights",
     readTime: "10 min read",
     image: "/hero-3.png",
-    date: "Sep 15, 2025",
+    date: "15 Sep 2025",
+  },
+  {
+    id: 4,
+    title: "Celebrating Excellence: Team Wins Global Recruitment Award",
+    excerpt:
+      "We are proud to announce that NeoRecruits has been recognized as the Best Executive Search Firm in the Middle East for 2023.",
+    category: "Awards",
+    readTime: "2 min read",
+    image: "/about_values_1.png",
+    date: "05 Nov 2023",
   },
 ];

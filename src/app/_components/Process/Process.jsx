@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { motion, useInView } from "framer-motion";
-import { ProcessStep } from "./ProcessStep";
 import { steps, smoothTransition, staggerDelay } from "./processData";
 
 export function Process() {
@@ -12,42 +11,65 @@ export function Process() {
   return (
     <section
       ref={ref}
-      className="relative py-12 sm:py-16 md:py-24 bg-[#0b2677] overflow-hidden"
+      id="how-we-work"
+      className="py-20 sm:py-28 md:py-36 bg-[#0b2677] overflow-hidden"
     >
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-
-      <div className="container mx-auto px-4 relative z-10 text-center max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-          transition={{ ...smoothTransition, delay: staggerDelay * 0 }}
-          className="space-y-3 sm:space-y-4 mb-10 sm:mb-16 md:mb-20"
-        >
-          <h2 className="tracking-tight text-white leading-tight text-xl sm:text-2xl md:text-3xl lg:text-[22pt]">
-            Industry Expertise
-          </h2>
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 max-w-7xl">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20 sm:mb-28">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={smoothTransition}
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight"
+          >
+            How We Work
+          </motion.h2>
           <motion.div
             initial={{ width: 0 }}
-            animate={isInView ? { width: "100%" } : { width: 0 }}
-            transition={{ ...smoothTransition, delay: staggerDelay * 1 }}
-            className="w-16 sm:w-20 h-1 sm:h-1.5 bg-[#9a01cd] mx-auto rounded-full"
+            animate={isInView ? { width: "80px" } : { width: 0 }}
+            transition={{ ...smoothTransition, delay: 0.3 }}
+            className="h-1.5 bg-[#9a01cd] mx-auto mt-6 rounded-full"
           />
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8">
-          {steps.map((step, index) => (
-            <ProcessStep
-              key={step.id}
-              step={step}
-              index={index}
-              isInView={isInView}
-            />
-          ))}
+        {/* Steps Flow */}
+        <div className="relative">
+          {/* Horizontal Connector Line */}
+          <div className="absolute top-10 left-[12%] right-[12%] h-[1px] bg-sky-200/20 hidden lg:block" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                }
+                transition={{
+                  ...smoothTransition,
+                  delay: staggerDelay * index,
+                }}
+                className="flex flex-col items-center text-center group"
+              >
+                {/* Icon Circle */}
+                <div className="relative mb-8">
+                  <div
+                    className={`w-20 h-20 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-lg shadow-[#9a01cd]/20 group-hover:shadow-[#9a01cd]/40`}
+                  >
+                    <step.icon className="w-8 h-8 text-white stroke-[2.5px]" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="max-w-[240px] px-2 min-h-[60px] flex items-start justify-center">
+                  <p className="text-white/90 text-sm sm:text-base font-bold leading-relaxed">
+                    {step.title}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

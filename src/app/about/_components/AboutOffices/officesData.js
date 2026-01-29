@@ -1,5 +1,6 @@
 export const offices = [
   {
+    id: 1,
     country: "United Arab Emirates",
     city: "Dubai",
     address: "Level 14, Emirates Towers, Sheikh Zayed Road, Dubai",
@@ -7,8 +8,10 @@ export const offices = [
     email: "dubai@neorecruits.com",
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     flag: "🇦🇪",
+    image: "/locations/dubai.png",
   },
   {
+    id: 2,
     country: "Saudi Arabia",
     city: "Riyadh",
     address: "KAFD, Building 5.04, Al Aqiq, Riyadh 13519",
@@ -16,8 +19,10 @@ export const offices = [
     email: "riyadh@neorecruits.com",
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     flag: "🇸🇦",
+    image: "/locations/riyadh.png",
   },
   {
+    id: 3,
     country: "United Arab Emirates",
     city: "Abu Dhabi",
     address: "ADGM Square, Al Maryah Island, Abu Dhabi",
@@ -25,8 +30,10 @@ export const offices = [
     email: "abudhabi@neorecruits.com",
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     flag: "🇦🇪",
+    image: "/locations/abu_dhabi.png",
   },
   {
+    id: 4,
     country: "United Kingdom",
     city: "London",
     address: "30 St Mary Axe (The Gherkin), London EC3A 8BF",
@@ -34,8 +41,10 @@ export const offices = [
     email: "london@neorecruits.com",
     hours: "Mon - Fri: 9:00 AM - 5:30 PM",
     flag: "🇬🇧",
+    image: "/locations/london.png",
   },
   {
+    id: 5,
     country: "Pakistan",
     city: "Karachi",
     address: "Clifton, Block 9, Karachi 75600",
@@ -43,5 +52,6 @@ export const offices = [
     email: "karachi@neorecruits.com",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM",
     flag: "🇵🇰",
+    image: "/locations/karachi.png",
   },
 ];

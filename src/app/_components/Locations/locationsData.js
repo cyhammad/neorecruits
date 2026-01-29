@@ -13,7 +13,7 @@ export const offices = [
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     lat: 25.2048,
     lng: 55.2708,
-    image: "/hero-3.png",
+    image: "/locations/dubai.png",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export const offices = [
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     lat: 24.7136,
     lng: 46.6753,
-    image: "/hero-1.png",
+    image: "/locations/riyadh.png",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ export const offices = [
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     lat: 23.5,
     lng: 53.0,
-    image: "/hero-2.png",
+    image: "/locations/abu_dhabi.png",
   },
   {
     id: 4,
@@ -46,7 +46,18 @@ export const offices = [
     hours: "Mon - Fri: 9:00 AM - 5:30 PM",
     lat: 51.5074,
     lng: -0.1278,
-    image: "/hero-3.png",
+    image: "/locations/london.png",
+  },
+  {
+    id: 5,
+    city: "Karachi",
+    country: "Pakistan",
+    address: "Clifton, Block 9, Karachi 75600",
+    phone: "+92 21 1234 5678",
+    hours: "Mon - Sat: 9:00 AM - 6:00 PM",
+    lat: 24.8607,
+    lng: 67.0011,
+    image: "/locations/karachi.png",
   },
 ];
 
@@ -62,5 +73,9 @@ export const mapConnections = [
   {
     start: { lat: offices[0].lat, lng: offices[0].lng },
     end: { lat: offices[3].lat, lng: offices[3].lng },
+  },
+  {
+    start: { lat: offices[0].lat, lng: offices[0].lng },
+    end: { lat: 24.8607, lng: 67.0011 },
   },
 ];

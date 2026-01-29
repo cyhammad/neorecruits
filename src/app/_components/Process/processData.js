@@ -1,4 +1,4 @@
-import { ClipboardList, Search, Users, ShieldCheck } from "lucide-react";
+import { MessageCircle, Users, ClipboardCheck, TrendingUp } from "lucide-react";
 
 export const smoothTransition = {
   duration: 1,
@@ -10,34 +10,26 @@ export const staggerDelay = 0.2;
 export const steps = [
   {
     id: 1,
-    title: "REQUIREMENT",
-    description:
-      "Our experts conduct an in-depth analysis of your specific talent needs and corporate culture.",
-    timeline: "24-48 Hours",
-    icon: ClipboardList,
+    title: "Share your hiring need or job search goal",
+    icon: MessageCircle,
+    color: "from-[#9a01cd] to-[#c026d3]",
   },
   {
     id: 2,
-    title: "SHORTLIST",
-    description:
-      "Rapid market mapping and rigorous screening to identify the top 5% of suitable candidates.",
-    timeline: "3-5 Business Days",
-    icon: Search,
+    title: "We connect you with the right candidates or employers",
+    icon: Users,
+    color: "from-[#c026d3] to-[#7c3aed]",
   },
   {
     id: 3,
-    title: "INTERVIEWS",
-    description:
-      "We facilitate seamless interview processes, managing all logistics and feedback loops.",
-    timeline: "Flexible Schedule",
-    icon: Users,
+    title: "We handle contracts, visas, payroll, and compliance",
+    icon: ClipboardCheck,
+    color: "from-[#7c3aed] to-[#3b82f6]",
   },
   {
     id: 4,
-    title: "ONBOARDING",
-    description:
-      "Finalizing the selection and ensuring a smooth transition into your powerhouse team.",
-    timeline: "Ongoing Support",
-    icon: ShieldCheck,
+    title: "You focus on business results or career growth",
+    icon: TrendingUp,
+    color: "from-[#3b82f6] to-[#60a5fa]",
   },
 ];

@@ -1,7 +1,7 @@
 import { Hero } from "./_components/Hero/Hero";
 import { Intro } from "./_components/Intro/Intro";
 import { Services } from "./_components/Services/Services";
-import { Expertise } from "./_components/Expertise/Expertise";
+import { Industries } from "./_components/Industries/Industries";
 import { Process } from "./_components/Process/Process";
 import { Jobs } from "./_components/Jobs/Jobs";
 import { Locations } from "./_components/Locations/Locations";
@@ -15,7 +15,7 @@ export default function Home() {
       <Hero />
       <Intro />
       <Services />
-      <Expertise />
+      <Industries />
       <Process />
       <Jobs />
       <Locations />
