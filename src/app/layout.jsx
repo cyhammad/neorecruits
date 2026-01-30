@@ -19,6 +19,8 @@ export const metadata = {
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ClientLayout } from "@/components/layout/ClientLayout";
+import { FloatingSupport } from "@/components/FloatingSupport/FloatingSupport";
+import { GoogleTranslate } from "@/components/GoogleTranslate/GoogleTranslate";
 
 export default function RootLayout({ children }) {
   return (
@@ -37,10 +39,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased font-sans overflow-x-hidden`}
       >
+        <GoogleTranslate />
         <ClientLayout>
           <Header />
           <main>{children}</main>
           <Footer />
+          <FloatingSupport />
         </ClientLayout>
       </body>
     </html>

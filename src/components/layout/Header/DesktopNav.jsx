@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function DesktopNav({ navLinks }) {
   return (
-    <div className="flex items-center gap-7">
+    <div className="flex items-center gap-5">
       {navLinks.map((link) => (
         <Link
           key={link.name}

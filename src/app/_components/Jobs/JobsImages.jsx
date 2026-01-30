@@ -60,6 +60,7 @@ export function JobsImages() {
           src="/job-man.png"
           alt="Professional walking"
           fill
+          sizes="(max-width: 640px) 65vw, (max-width: 768px) 70vw, 450px"
           className={imageCoverClasses}
           priority
         />
@@ -78,6 +79,7 @@ export function JobsImages() {
           src="/job-office.png"
           alt="Office team"
           fill
+          sizes="(max-width: 640px) 70vw, (max-width: 768px) 75vw, 500px"
           className={imageCoverClasses}
         />
       </motion.div>

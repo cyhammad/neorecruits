@@ -12,7 +12,9 @@ export function FooterBrand() {
         <Image
           src="/mainLogo.png"
           alt="NeoRecruits"
-          fill
+          width={160}
+          height={48}
+          style={{ width: "160px", height: "auto" }}
           className="object-contain object-left brightness-0 invert"
         />
       </Link>
@@ -24,7 +26,7 @@ export function FooterBrand() {
         <SocialLink href="#" icon={Linkedin} />
         <SocialLink href="#" icon={Twitter} />
         <SocialLink href="#" icon={Instagram} />
-        <SocialLink href="#" icon={Facebook} />
+        <SocialLink href="#" icon={Facebook} /> 
       </div>
     </div>
   );

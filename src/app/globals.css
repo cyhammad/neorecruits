@@ -128,23 +128,45 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    font-size: 34pt;
-    font-weight: 800;
+    @apply text-4xl font-extrabold;
   }
   h2 {
-    font-size: 22pt;
-    font-weight: 700;
+    @apply text-3xl font-bold;
   }
   h3 {
-    font-size: 18pt;
-    font-weight: 600;
+    @apply text-2xl font-semibold;
   }
   p {
-    font-size: 14pt;
-    font-weight: 500;
+    @apply text-base font-normal;
   }
   .description {
-    font-size: 14pt;
-    font-weight: 400;
+    @apply text-base font-normal;
   }
+}
+
+/* Google Translate - Hide toolbar and branding */
+.goog-te-banner-frame,
+.skiptranslate,
+.goog-te-gadget {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+.goog-te-menu-value span {
+  display: none;
+}
+
+.goog-logo-link,
+.goog-te-gadget > span {
+  display: none !important;
+}
+
+/* Improve translated text appearance */
+font[style] {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }

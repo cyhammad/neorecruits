@@ -38,6 +38,7 @@ export function PageLoader() {
     if (progress === 100) {
       setTimeout(() => {
         setIsLoading(false);
+        window.dispatchEvent(new Event("page-loaded"));
         setTimeout(() => {
           setIsVisible(false);
           document.body.style.overflow = "";
@@ -71,6 +72,7 @@ export function PageLoader() {
                   src="/mainLogo.png"
                   alt="NeoRecruits"
                   fill
+                  sizes="320px"
                   className="object-contain brightness-0 invert"
                   priority
                 />

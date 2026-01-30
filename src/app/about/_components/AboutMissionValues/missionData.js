@@ -23,8 +23,23 @@ export const values = [
   },
 ];
 
-export const mission = {
-  title: "Our Mission",
-  description:
-    "To empower organizations with exceptional talent acquisition solutions that drive business performance. We are dedicated to delivering efficient, cost-effective, and adaptable strategies that adhere to industry best practices, creating lasting value for our clients and candidates alike.",
-};
+export const alternatingSections = [
+  {
+    title: "Our Mission",
+    description:
+      "Our mission is to empower clients to enhance productivity with their talent acquisition strategies. We are dedicated to delivering efficient, cost-effective, and adaptable solutions that adhere to industry best practices.",
+    image: "/mission-bg.png",
+  },
+  {
+    title: "Our Vision",
+    description:
+      "NeoRecruits Talent strives to be the partner of choice today to enhance the business performance of tomorrow. We envision a world where every organization has access to the exceptional talent they need to thrive.",
+    image: "/about-vision.png",
+  },
+  {
+    title: "Our Goals",
+    description:
+      "To consistently provide high-quality talent solutions, expand our global reach, and maintain the highest standards of compliance and speed in the recruitment industry.",
+    image: "/mission-fg.png",
+  },
+];

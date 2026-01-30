@@ -6,9 +6,7 @@ import { AboutOverview } from "./_components/AboutOverview/AboutOverview";
 import { AboutJourney } from "./_components/AboutJourney/AboutJourney";
 import { AboutCEOMessage } from "./_components/AboutCEOMessage/AboutCEOMessage";
 import { AboutMissionValues } from "./_components/AboutMissionValues/AboutMissionValues";
-import { AboutServices } from "./_components/AboutServices/AboutServices";
 import { AboutOffices } from "./_components/AboutOffices/AboutOffices";
-import { AboutCompliance } from "./_components/AboutCompliance/AboutCompliance";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function AboutPage() {
@@ -20,11 +18,9 @@ export default function AboutPage() {
 
   const tabs = [
     { id: "who-we-are", label: "Who We Are" },
-    { id: "locations", label: "Locations" },
-    { id: "values", label: "Mission & Values" },
     { id: "leadership", label: "Leadership" },
-    { id: "services", label: "Our Services" },
-    { id: "compliance", label: "Compliance" },
+    { id: "values", label: "Mission & Values" },
+    { id: "locations", label: "Locations" },
   ];
 
   const renderContent = () => {
@@ -66,18 +62,6 @@ export default function AboutPage() {
             <AboutMissionValues />
           </motion.div>
         );
-      case "services":
-        return (
-          <motion.div
-            key="services"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <AboutServices />
-          </motion.div>
-        );
       case "locations":
         return (
           <motion.div
@@ -88,18 +72,6 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
           >
             <AboutOffices />
-          </motion.div>
-        );
-      case "compliance":
-        return (
-          <motion.div
-            key="compliance"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <AboutCompliance />
           </motion.div>
         );
       default:

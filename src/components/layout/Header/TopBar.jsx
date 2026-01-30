@@ -2,6 +2,8 @@
 
 import { Mail, Phone, Briefcase, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { triggerArabicTranslation } from "@/components/GoogleTranslate/GoogleTranslate";
 
 /**
  * TopBar component.
@@ -35,20 +37,22 @@ export function TopBar() {
               <span>info@neorecruits.com</span>
             </a>
             <div className="w-[1px] h-3.5 bg-white/20" />
-            <a
-              href="#"
-              className="hover:text-white transition-colors font-semibold"
+            <button
+              onClick={triggerArabicTranslation}
+              className="hover:text-white transition-colors font-semibold cursor-pointer"
             >
               عربي
-            </a>
+            </button>
           </div>
 
           {/* Top Bar Actions */}
           <div className="flex items-center gap-3">
-            <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
-              <Briefcase className="size-3.5" />
-              <span>Register Your Job</span>
-            </button>
+            <Link href="/contact">
+              <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
+                <Phone className="size-3.5" />
+                <span>Contact Us</span>
+              </button>
+            </Link>
             <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
               <User className="size-3.5" />
               <span>Sign In</span>

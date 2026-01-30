@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function JobDetailHero({ job }) {
   return (
-    <section className="relative pt-16 bg-[#0b2677]">
+    <section className="relative pt-24 sm:pt-32 bg-[#0b2677]">
       <div className="container mx-auto px-4 sm:px-6 md:px-10">
         <div className="max-w-7xl mx-auto py-12 sm:py-16">
           <div className="space-y-6 text-white">
@@ -25,7 +25,9 @@ export function JobDetailHero({ job }) {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase">
                 {job.title}
               </h1>
-              <p className="text-xl sm:text-2xl text-white/80 font-semibold">{job.company}</p>
+              <p className="text-xl sm:text-2xl text-white/80 font-semibold">
+                {job.company}
+              </p>
             </div>
 
             {/* Job Details */}
