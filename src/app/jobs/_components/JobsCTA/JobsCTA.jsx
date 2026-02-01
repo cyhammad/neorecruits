@@ -18,19 +18,22 @@ export function JobsCTA() {
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-[120%] bg-linear-to-bl from-white/5 to-transparent pointer-events-none -skew-x-12 origin-top-right z-0 rounded-l-[100px] blur-3xl" />
       <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div className="space-y-6 sm:space-y-8">
-              <h2 className="tracking-tight text-white leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[22pt]">
-                Can't Find the Perfect Role?
-              </h2>
-              <p className="text-white/70 text-base sm:text-lg leading-relaxed font-medium">
-                Join our talent network and get matched with exclusive
-                opportunities. Submit your resume and let our recruiters find
-                the right role for you.
-              </p>
-              <div className="space-y-4 pt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="space-y-8 sm:space-y-10">
+              <div className="space-y-4">
+                <h2 className="tracking-tight text-white leading-tight text-3xl sm:text-4xl md:text-5xl font-black">
+                  Can't Find the Perfect Role?
+                </h2>
+                <p className="text-white/70 text-base sm:text-lg leading-relaxed font-medium max-w-lg">
+                  Join our talent network and get matched with exclusive
+                  opportunities. Submit your resume and let our recruiters find
+                  the right role for you.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Button
-                  className="rounded-lg bg-[#9a01cd] hover:bg-[#9a01cd]/90 text-white h-12 sm:h-14 px-6 sm:px-8 text-xs sm:text-sm font-bold tracking-widest uppercase w-full sm:w-auto"
+                  className="rounded-lg bg-[#9a01cd] hover:bg-[#9a01cd]/90 text-white h-12 sm:h-14 px-8 text-xs sm:text-sm font-bold tracking-widest uppercase w-full sm:w-auto shadow-lg shadow-[#9a01cd]/20"
                   asChild
                 >
                   <Link href="/jobs/upload-resume">
@@ -40,24 +43,27 @@ export function JobsCTA() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="rounded-lg border-2 border-white/30 bg-white/10 backdrop-blur-xl hover:bg-white/20 text-white h-12 sm:h-14 px-6 sm:px-8 text-xs sm:text-sm font-bold tracking-widest uppercase transition-all w-full sm:w-auto"
+                  className="rounded-lg border-2 border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/40 text-white h-12 sm:h-14 px-8 text-xs sm:text-sm font-bold tracking-widest uppercase transition-all w-full sm:w-auto text-center"
                   asChild
                 >
-                  <Link href="/contact">
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-center"
+                  >
                     <Mail className="mr-2 w-5 h-5" />
                     Contact Recruiter
                   </Link>
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] w-full rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 order-first lg:order-last">
               <Image
                 src="/job-man.png"
                 alt="Professional with resume"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[#0b2677]/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b2677]/80 to-transparent mix-blend-multiply" />
             </div>
           </div>
         </div>
