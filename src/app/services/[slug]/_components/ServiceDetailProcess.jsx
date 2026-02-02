@@ -114,6 +114,72 @@ const serviceProcessData = {
       },
     ],
   },
+  "qa-qc-inspection": {
+    title: "Ensuring Project Excellence Through QA/QC Inspection",
+    description:
+      "NeoRecruits' QA/QC services provide rigorous quality oversight and compliance solutions. We provide the technical expertise needed to ensure your industrial and construction projects meet the highest international standards.",
+    benefits: [
+      {
+        title: "Rigorous Standards Compliance",
+        description:
+          "We ensure every aspect of your project adheres to international and local regulatory standards. Our inspectors are experts in code compliance, verifying that all materials and workmanship meet specified requirements.",
+      },
+      {
+        title: "Technical Excellence",
+        description:
+          "Our inspectors bring deep domain expertise in specialized fields such as NDT, civil, mechanical, and electrical engineering. This ensures that even the most complex technical aspects of your project are scrutinized with precision.",
+      },
+      {
+        title: "Risk & Cost Mitigation",
+        description:
+          "Early identification of non-conformities saves significant time and costs. Our proactive inspection methodology prevents reworks and ensures your project remains on schedule and within budget while maintaining quality.",
+      },
+    ],
+  },
+  "technical-training": {
+    title: "Empowering Your Workforce Through Technical Training",
+    description:
+      "NeoRecruits' training programs are designed to enhance the technical competencies of your team. We provide industry-relevant training that drives operational efficiency and safety across your organization.",
+    benefits: [
+      {
+        title: "Industry-Relevant Skills",
+        description:
+          "Our training modules are developed in collaboration with industry experts to ensure alignment with current market demands. Your workforce gains practical skills that can be immediately applied to improve project outcomes.",
+      },
+      {
+        title: "Enhanced Safety Culture",
+        description:
+          "Safety is at the core of our training. We provide comprehensive HSE certifications and safety orientation programs that reduce workplace incidents and ensure a compliant, secure working environment.",
+      },
+      {
+        title: "Operational Efficiency",
+        description:
+          "By upskilling your team, we help you achieve higher productivity and better equipment utilization. Our training focuses on technical proficiency, troubleshooting, and best practices that streamline operations.",
+      },
+    ],
+  },
+  "manpower-supply": {
+    title: "Supporting Project Success Through Reliable Manpower Supply",
+    description:
+      "NeoRecruits provides scalable labor solutions for large-scale industrial and construction projects. We deliver skilled and semi-skilled personnel who are vetted for reliability and performance.",
+    benefits: [
+      {
+        title: "Rapid Workforce Mobilization",
+        description:
+          "Our extensive database and streamlined mobilization processes allow us to deploy large numbers of skilled personnel quickly. We handle all logistics, ensuring your project has the manpower it needs to meet critical milestones.",
+      },
+      {
+        title: "High-Quality Vetted Labor",
+        description:
+          "Every candidate undergoes a rigorous selection process, including skills testing and background verification. This ensures you receive reliable personnel who have the necessary competencies for your specific project requirements.",
+      },
+      {
+        title: "Flexible Labor Solutions",
+        description:
+          "We offer flexible supply models that allow you to scale your workforce up or down based on project phases. This helps you manage costs effectively while ensuring you always have the right head-count for every task.",
+      },
+    ],
+  },
 };
 
 const glideTransition = {

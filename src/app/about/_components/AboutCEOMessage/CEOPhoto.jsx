@@ -10,7 +10,7 @@ export function CEOPhoto() {
         <div className="relative w-56 h-72 sm:w-64 sm:h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
           <Image
             src="/job-man.png"
-            alt="Sajid Shabbir - CEO"
+            alt="CEO"
             fill
             sizes="(max-width: 768px) 256px, 384px"
             className="object-cover object-top transition-transform duration-700 group-hover:scale-105"

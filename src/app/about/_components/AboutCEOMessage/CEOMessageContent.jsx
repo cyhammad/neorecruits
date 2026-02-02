@@ -30,16 +30,7 @@ export function CEOMessageContent() {
       </div>
 
       <div className="pt-4 flex items-center gap-6">
-        <div className="relative w-32 h-12 flex items-center justify-center opacity-80 brightness-0 text-[#0b2677]">
-          <span className="font-serif text-3xl -rotate-3 select-none whitespace-nowrap">
-            Sajid Shabbir
-          </span>
-        </div>
-        <div className="w-px h-12 bg-[#0b2677]/10" />
         <div className="space-y-0.5">
-          <p className="text-[#0b2677] font-black uppercase text-base tracking-wide">
-            Sajid Shabbir
-          </p>
           <p className="text-[#9a01cd] text-xs sm:text-sm font-bold uppercase tracking-wider">
             Chief Executive Officer
           </p>

@@ -158,6 +158,96 @@ const serviceData = {
       },
     ],
   },
+  "qa-qc-inspection": {
+    title: "QA/QC Inspection Services",
+    image: "/service_contract_recruitment.png",
+    intro:
+      "NeoRecruits provides specialized QA/QC inspection services to ensure your projects maintain the highest standards of quality and compliance. We deliver expert inspectors and auditors across various technical and industrial sectors.",
+    description:
+      "Our quality assurance and control services are designed to mitigate risks and ensure project integrity. From manufacturing to large-scale construction, our inspectors provide rigorous oversight, ensuring all materials, processes, and final deliverables meet or exceed international standards and regulatory requirements.",
+    features: [
+      {
+        label: "Expert Technical Inspectors",
+        text: "Access to certified professionals with specialized knowledge in welding, NDT, electrical, and mechanical inspection.",
+      },
+      {
+        label: "Regulatory Compliance",
+        text: "Ensuring all project phases adhere to ASME, ISO, API, and other critical industry standards.",
+      },
+      {
+        label: "Third-Party Oversight",
+        text: "Unbiased, professional auditing and inspection services to verify vendor and contractor performance.",
+      },
+      {
+        label: "Risk Management",
+        text: "Early detection of defects and non-conformities to prevent costly reworks and project delays.",
+      },
+      {
+        label: "Comprehensive Reporting",
+        text: "Detailed documentation and status reports providing full visibility into project quality metrics.",
+      },
+    ],
+  },
+  "technical-training": {
+    title: "Technical Training & Development",
+    image: "/service_permanent_staffing.png",
+    intro:
+      "Empower your workforce with NeoRecruits' comprehensive technical training programs. We bridge the skill gap by providing specialized training tailored to the evolving needs of modern industries.",
+    description:
+      "We offer a range of training solutions from basic safety certifications to advanced technical workshops. Our programs are designed and delivered by industry experts, ensuring your team acquires practical, applicable skills that enhance productivity, safety, and operational excellence.",
+    features: [
+      {
+        label: "Customized Curriculums",
+        text: "Training programs developed specifically for your organization's unique equipment, processes, and goals.",
+      },
+      {
+        label: "Safety & Compliance",
+        text: "Rigorous HSE training ensuring your team operates within global safety standards and local regulations.",
+      },
+      {
+        label: "Hands-on Workshops",
+        text: "Practical, lab-based training that focuses on real-world application and problem-solving.",
+      },
+      {
+        label: "Certification Support",
+        text: "Preparation and examination support for international professional and technical certifications.",
+      },
+      {
+        label: "Skills Gap Analysis",
+        text: "Objective assessment of your team's current capabilities to identify and target critical training needs.",
+      },
+    ],
+  },
+  "manpower-supply": {
+    title: "Reliable Manpower Supply",
+    image: "/service_executive_search.png",
+    intro:
+      "NeoRecruits is your trusted partner for scalable manpower supply solutions. We provide the right people at the right time to support your industrial, construction, and corporate operations.",
+    description:
+      "Whether you need skilled technicians, semi-skilled labor, or general workforce support, we deliver reliable personnel who are ready to contribute from day one. Our rigorous vetting and management processes ensure high productivity and seamless integration into your project environment.",
+    features: [
+      {
+        label: "Skilled & Technical Labor",
+        text: "Pre-screened professionals including electricians, welders, pipefitters, and specialized operators.",
+      },
+      {
+        label: "Scalable Workforce",
+        text: "Ability to rapidly scale labor supply up or down based on your project's changing requirements.",
+      },
+      {
+        label: "End-to-End Management",
+        text: "We handle recruitment, mobilization, payroll, and accommodation, allowing you to focus on project delivery.",
+      },
+      {
+        label: "Safety Focused",
+        text: "All personnel are equipped with necessary PPE and have undergone basic safety orientation before deployment.",
+      },
+      {
+        label: "Productivity Monitoring",
+        text: "Regular performance reviews to ensure our workforce meets your project's efficiency standards.",
+      },
+    ],
+  },
 };
 
 const glideTransition = {

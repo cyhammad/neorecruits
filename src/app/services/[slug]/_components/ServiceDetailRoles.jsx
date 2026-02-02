@@ -119,6 +119,74 @@ const serviceInsightsData = {
       },
     ],
   },
+  "qa-qc-inspection": {
+    insights: [
+      {
+        date: "25 Jan 2025",
+        title:
+          "Maintaining Quality Standards in High-Pressure Industrial Projects",
+        excerpt:
+          "The critical role of QA/QC inspection in preventing project failures and ensuring long-term asset integrity.",
+        image: "/service_contract_recruitment.png",
+        link: "/insights/quality-high-pressure",
+        featured: true,
+      },
+      {
+        date: "15 Jan 2025",
+        title: "International Standards Compliance: A Guide for Manufacturers",
+        excerpt:
+          "Understanding the nuances of ASME and ISO standards in modern manufacturing environments.",
+        image: "/service_rpo.png",
+        link: "/insights/standards-compliance",
+        featured: false,
+      },
+    ],
+  },
+  "technical-training": {
+    insights: [
+      {
+        date: "18 Jan 2025",
+        title: "Bridging the Technical Skill Gap in 2025",
+        excerpt:
+          "How customized training programs are helping organizations keep pace with rapid technological advancements.",
+        image: "/service_permanent_staffing.png",
+        link: "/insights/bridging-skill-gap",
+        featured: true,
+      },
+      {
+        date: "05 Jan 2025",
+        title: "Safety First: The ROI of Comprehensive HSE Training",
+        excerpt:
+          "Evaluating the impact of safety training on operational productivity and accident reduction.",
+        image: "/service_executive_search.png",
+        link: "/insights/hse-training-roi",
+        featured: false,
+      },
+    ],
+  },
+  "manpower-supply": {
+    insights: [
+      {
+        date: "22 Jan 2025",
+        title:
+          "Optimizing Project Timelines through Strategic Manpower Mobilization",
+        excerpt:
+          "Case study on scaling labor supply for a multi-billion dollar construction project with zero downtime.",
+        image: "/service_contract_recruitment.png",
+        link: "/insights/manpower-mobilization",
+        featured: true,
+      },
+      {
+        date: "12 Jan 2025",
+        title: "The Ethics of Manpower Supply: Ensuring Worker Welfare",
+        excerpt:
+          "NeoRecruits' commitment to ethical labor practices and its impact on workforce productivity and retention.",
+        image: "/service_rpo.png",
+        link: "/insights/ethical-manpower-supply",
+        featured: false,
+      },
+    ],
+  },
 };
 
 const glideTransition = {

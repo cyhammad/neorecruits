@@ -1,4 +1,13 @@
-import { Briefcase, Users, FileText, Building2, Laptop } from "lucide-react";
+import {
+  Briefcase,
+  Users,
+  FileText,
+  Building2,
+  Laptop,
+  ShieldCheck,
+  GraduationCap,
+  HardHat,
+} from "lucide-react";
 
 export const services = [
   {
@@ -84,5 +93,55 @@ export const services = [
       "IT Services",
     ],
     link: "/services/remote-staffing",
+  },
+  {
+    id: "qa-qc-inspection",
+    number: "06",
+    title: "QA/QC Inspection Services",
+    icon: ShieldCheck,
+    description:
+      "Comprehensive quality assurance and quality control inspection services across various technical sectors. We provide specialized inspectors and auditors to ensure your projects meet international standards and regulatory requirements.",
+    image: "/service_contract_recruitment.png",
+    industries: [
+      "Oil & Gas",
+      "Construction",
+      "Manufacturing",
+      "Energy",
+      "Infrastructure",
+    ],
+    link: "/services/qa-qc-inspection",
+  },
+  {
+    id: "technical-training",
+    number: "07",
+    title: "Technical Training",
+    icon: GraduationCap,
+    description:
+      "Specialized technical training programs designed to enhance the skills and competencies of your workforce. From safety certifications to advanced technical workshops, we help your team stay ahead in an ever-evolving industrial landscape.",
+    image: "/service_permanent_staffing.png",
+    industries: [
+      "Engineering",
+      "IT & Software",
+      "Operations",
+      "Health & Safety",
+    ],
+    link: "/services/technical-training",
+  },
+  {
+    id: "manpower-supply",
+    number: "08",
+    title: "Manpower Supply",
+    icon: HardHat,
+    description:
+      "Reliable manpower supply solutions for large-scale projects and industrial operations. We provide skilled, semi-skilled, and unskilled labor tailored to your project's specific needs, ensuring productivity and progress.",
+    image: "/service_executive_search.png",
+    industries: [
+      "Construction",
+      "Engineering",
+      "Logistics",
+      "Operations",
+      "Project Management",
+    ],
+    link: "/services/manpower-supply",
   },
 ];

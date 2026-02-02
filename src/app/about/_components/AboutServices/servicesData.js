@@ -4,6 +4,9 @@ import {
   Briefcase,
   ClipboardCheck,
   BarChart3,
+  ShieldCheck,
+  GraduationCap,
+  HardHat,
 } from "lucide-react";
 
 export const services = [
@@ -51,5 +54,32 @@ export const services = [
     icon: BarChart3,
     link: "/services/recruitment-campaigns",
     image: "/hero-2-v2.png",
+  },
+  {
+    id: 6,
+    title: "QA/QC Inspection Services",
+    description:
+      "Professional quality assurance and control inspections to maintain project integrity and standards.",
+    icon: ShieldCheck,
+    link: "/services/qa-qc-inspection",
+    image: "/hero-1.png",
+  },
+  {
+    id: 7,
+    title: "Technical Training",
+    description:
+      "Skill-enhancement programs designed to keep your workforce technically proficient and competitive.",
+    icon: GraduationCap,
+    link: "/services/technical-training",
+    image: "/hero-2.png",
+  },
+  {
+    id: 8,
+    title: "Manpower Supply",
+    description:
+      "Scalable manpower solutions for industrial, construction, and corporate staffing needs.",
+    icon: HardHat,
+    link: "/services/manpower-supply",
+    image: "/hero-3.png",
   },
 ];

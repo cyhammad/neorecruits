@@ -1,6 +1,7 @@
 import { Hero } from "./_components/Hero/Hero";
 import { Intro } from "./_components/Intro/Intro";
 import { Services } from "./_components/Services/Services";
+import { WhyNeo } from "./_components/WhyNeo/WhyNeo";
 import { Industries } from "./_components/Industries/Industries";
 import { Process } from "./_components/Process/Process";
 import { Jobs } from "./_components/Jobs/Jobs";
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <Intro />
       <Services />
+      <WhyNeo />
       <Industries />
       <Process />
       <Jobs />

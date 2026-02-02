@@ -15,11 +15,12 @@ const companyLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Executive Search", href: "#" },
-  { label: "Contract Staffing", href: "#" },
-  { label: "RPO Solutions", href: "#" },
-  { label: "Global Mobility", href: "#" },
-  { label: "Talent Advisory", href: "#" },
+  { label: "Executive Search", href: "/services/executive-search" },
+  { label: "Contract Staffing", href: "/services/contract-recruitment" },
+  { label: "RPO Solutions", href: "/services/outsource-rpo" },
+  { label: "QA/QC Inspection Services", href: "/services/qa-qc-inspection" },
+  { label: "Technical Training", href: "/services/technical-training" },
+  { label: "Manpower Supply", href: "/services/manpower-supply" },
 ];
 
 export function Footer() {

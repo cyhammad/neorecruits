@@ -10,6 +10,7 @@ const serviceTitles = {
   "remote-staffing": "Remote / Virtual Staffing",
   "technical-training": "Technical Training Services",
   "manpower-supply": "Manpower Supply Services",
+  "qa-qc-inspection": "QA/QC Inspection Services",
 };
 
 export function ServiceDetailHero({ slug }) {
