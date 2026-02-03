@@ -16,11 +16,9 @@ export const metadata = {
   description: "NEORECRUITS ",
 };
 
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { ClientLayout } from "@/components/layout/ClientLayout";
-import { FloatingSupport } from "@/components/FloatingSupport/FloatingSupport";
 import { GoogleTranslate } from "@/components/GoogleTranslate/GoogleTranslate";
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 
 export default function RootLayout({ children }) {
   return (
@@ -31,10 +29,7 @@ export default function RootLayout({ children }) {
       >
         <GoogleTranslate />
         <ClientLayout>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <FloatingSupport />
+          <ConditionalLayout>{children}</ConditionalLayout>
         </ClientLayout>
       </body>
     </html>

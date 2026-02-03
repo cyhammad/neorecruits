@@ -50,26 +50,24 @@ export function TopBar() {
 
           {/* Top Bar Actions */}
           <div className="flex items-center gap-3">
-            <Link href="/services">
+            <Link href="/services#request-talent">
               <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
                 <span>Hire Talent</span>
               </button>
             </Link>
-            <Link href="/jobs">
-              <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
-                <span>Search Jobs</span>
-              </button>
-            </Link>
+
             <Link href="/contact">
               <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
                 <Phone className="size-3.5" />
                 <span>Contact Us</span>
               </button>
             </Link>
-            <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
-              <User className="size-3.5" />
-              <span>Sign In</span>
-            </button>
+            <Link href="/signin">
+              <button className="h-8 px-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white border border-white/25 rounded hover:bg-white/10 transition-colors duration-200">
+                <User className="size-3.5" />
+                <span>Sign In</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

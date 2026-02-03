@@ -31,17 +31,30 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
         isScrolled
-          ? "bg-[#0b2677] border-white/10 shadow-lg py-0"
-          : "bg-transparent border-transparent py-2",
+          ? "bg-[#0b2677]/95 backdrop-blur-md border-white/10 shadow-xl"
+          : "bg-transparent border-transparent",
       )}
     >
       <div className="pointer-events-auto">
-        <TopBar />
+        {/* TopBar Wrapper: Collapses on scroll */}
+        <div
+          className={cn(
+            "transition-all duration-500 ease-[0.22,1,0.36,1] overflow-hidden",
+            isScrolled ? "h-0 opacity-0" : "h-12 opacity-100",
+          )}
+        >
+          <TopBar />
+        </div>
 
         {/* Main Navigation Row */}
-        <div className="relative py-3">
+        <div
+          className={cn(
+            "relative transition-all duration-500",
+            isScrolled ? "py-3" : "py-4",
+          )}
+        >
           <div className="container mx-auto px-4 sm:px-6 md:px-10">
             <nav className="flex items-center justify-between max-w-7xl mx-auto">
               <Logo />

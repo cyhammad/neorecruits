@@ -1,11 +1,6 @@
-import {
-  LogIn,
-  UserPlus,
-  Phone,
-  Mail,
-  MessageSquare,
-  Search,
-} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { LogIn, UserPlus, Phone, Mail, MessageSquare } from "lucide-react";
 
 export function MobileMenuActions() {
   return (
@@ -13,20 +8,11 @@ export function MobileMenuActions() {
       {/* Primary CTAs */}
       <div className="flex flex-col gap-3">
         <Button
-          className="w-full justify-center gap-3 text-base py-6 px-4 bg-white text-[#0b2677] hover:bg-white/90 font-bold uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl"
-          asChild
-        >
-          <Link href="/jobs">
-            <Search className="w-5 h-5" />
-            Search Jobs
-          </Link>
-        </Button>
-        <Button
           variant="outline"
           className="w-full justify-center gap-3 text-base py-6 px-4 border-2 border-white/30 text-white hover:bg-white/10 font-bold uppercase tracking-wider rounded-xl transition-all duration-200"
           asChild
         >
-          <Link href="/services">
+          <Link href="/services#request-talent">
             <UserPlus className="w-5 h-5" />
             Hire Talent
           </Link>
@@ -38,9 +24,12 @@ export function MobileMenuActions() {
         <Button
           variant="ghost"
           className="justify-center gap-2 text-sm py-4 border border-white/10 text-white hover:bg-white/5 font-semibold rounded-lg transition-all"
+          asChild
         >
-          <LogIn className="w-4 h-4" />
-          Log in
+          <Link href="/signin">
+            <LogIn className="w-4 h-4" />
+            Log in
+          </Link>
         </Button>
         <Button
           variant="ghost"
