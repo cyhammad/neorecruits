@@ -14,6 +14,7 @@ export const offices = [
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
     lat: 27.0117,
     lng: 49.6583,
+    flag: "🇸🇦",
     image: "/locations/riyadh.png",
   },
   {
@@ -26,6 +27,7 @@ export const offices = [
     hours: "Mon - Fri: 9:00 AM - 5:00 PM",
     lat: 40.7128,
     lng: -74.006,
+    flag: "🇺🇸",
     image: "/locations/london.png",
   },
   {
@@ -38,6 +40,7 @@ export const offices = [
     hours: "Mon - Fri: 9:00 AM - 5:30 PM",
     lat: 52.55,
     lng: -2.0167,
+    flag: "🇬🇧",
     image: "/locations/london.png",
   },
   {
@@ -51,6 +54,7 @@ export const offices = [
     hours: "Mon - Sat: 9:00 AM - 6:00 PM",
     lat: 31.5204,
     lng: 74.3587,
+    flag: "🇵🇰",
     image: "/locations/karachi.png",
   },
   {
@@ -63,6 +67,7 @@ export const offices = [
     hours: "Mon - Fri: 9:00 AM - 6:00 PM",
     lat: 19.076,
     lng: 72.8777,
+    flag: "🇮🇳",
     image: "/locations/karachi.png",
   },
 ];

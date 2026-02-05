@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { offices } from "./officesData";
+import { offices } from "@/app/_components/Locations/locationsData";
 import { OfficeCard } from "./OfficeCard";
 
 export function AboutOffices() {
