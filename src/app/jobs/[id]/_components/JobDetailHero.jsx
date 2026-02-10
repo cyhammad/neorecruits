@@ -1,54 +1,98 @@
 "use client";
 
 import * as React from "react";
-import { MapPin, Briefcase, Clock, DollarSign, Calendar } from "lucide-react";
+import { MapPin, Briefcase, Clock, DollarSign, Building2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function JobDetailHero({ job }) {
+  // Helper to format salary
+  const displaySalary = job.salary
+    ? job.salary.replace(/USD/g, "").replace(/To/gi, "-")
+    : "Competitive";
+
   return (
-    <section className="relative pt-24 sm:pt-32 bg-[#0b2677]">
+    <section className="relative pt-44 sm:pt-52 pb-16">
       <div className="container mx-auto px-4 sm:px-6 md:px-10">
-        <div className="max-w-7xl mx-auto py-12 sm:py-16">
-          <div className="space-y-6 text-white">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 flex-wrap">
-                <Badge className="bg-[#9a01cd] text-white font-bold text-xs uppercase tracking-wider">
-                  {job.type}
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="bg-white/10 text-white border-white/30 font-semibold text-xs"
-                >
-                  {job.industry}
-                </Badge>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase">
-                {job.title}
-              </h1>
-              <p className="text-xl sm:text-2xl text-white/80 font-semibold">
-                {job.company}
-              </p>
+        <div className="max-w-7xl mx-auto space-y-10">
+          {/* Header Content */}
+          <div className="space-y-6 max-w-4xl">
+            <div className="flex items-center gap-3 flex-wrap">
+              <Badge className="bg-[#9a01cd] hover:bg-[#8a01b8] text-white px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border-none">
+                {job.type}
+              </Badge>
+              <Badge
+                variant="outline"
+                className="bg-white/10 text-white border-white/20 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide backdrop-blur-sm"
+              >
+                {job.industry}
+              </Badge>
             </div>
 
-            {/* Job Details */}
-            <div className="flex flex-wrap items-center gap-6 text-base sm:text-lg text-white/90 pt-4 border-t border-white/20">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-[#9a01cd]" />
-                <span>{job.location}</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+              {job.title}
+            </h1>
+
+            <div className="flex items-center gap-3 text-white/80">
+              <Building2 className="w-6 h-6 text-[#9a01cd]" />
+              <p className="text-xl sm:text-2xl font-bold">{job.company}</p>
+            </div>
+          </div>
+
+          {/* Stats Glass Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#9a01cd]/20 flex items-center justify-center shrink-0">
+                <MapPin className="w-6 h-6 text-[#9a01cd]" />
               </div>
-              {job.salary && (
-                <div className="flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-[#9a01cd]" />
-                  <span>{job.salary}</span>
-                </div>
-              )}
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-[#9a01cd]" />
-                <span>Posted {job.posted}</span>
+              <div>
+                <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-1">
+                  Location
+                </p>
+                <p className="text-base sm:text-lg font-bold text-white leading-tight">
+                  {job.location}
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-[#9a01cd]" />
-                <span>{job.experience}</span>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#9a01cd]/20 flex items-center justify-center shrink-0">
+                <DollarSign className="w-6 h-6 text-[#9a01cd]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-1">
+                  Salary Range
+                </p>
+                <p className="text-base sm:text-lg font-bold text-white leading-tight">
+                  {displaySalary}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#9a01cd]/20 flex items-center justify-center shrink-0">
+                <Clock className="w-6 h-6 text-[#9a01cd]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-1">
+                  Posted
+                </p>
+                <p className="text-base sm:text-lg font-bold text-white leading-tight">
+                  {job.posted}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#9a01cd]/20 flex items-center justify-center shrink-0">
+                <Briefcase className="w-6 h-6 text-[#9a01cd]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-1">
+                  Experience
+                </p>
+                <p className="text-base sm:text-lg font-bold text-white leading-tight">
+                  {job.experience}
+                </p>
               </div>
             </div>
           </div>

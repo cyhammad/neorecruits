@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { Button } from "@/components/ui/Button";
-import { jobListings } from "./jobsData";
 import { JobsListingsHeader } from "./JobsListingsHeader";
 import { JobCard } from "./JobCard";
 import { NoJobsFound } from "./NoJobsFound";
@@ -11,10 +10,83 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function JobsListings({ filters = null }) {
   const [sortBy, setSortBy] = React.useState("latest");
-  const [filteredJobs, setFilteredJobs] = React.useState(jobListings);
+  const [fetchedJobs, setFetchedJobs] = React.useState([]);
+  const [filteredJobs, setFilteredJobs] = React.useState([]);
+  const [visibleCount, setVisibleCount] = React.useState(12);
+  const [animationKey, setAnimationKey] = React.useState(0);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    let jobs = [...jobListings];
+    const fetchJobs = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(
+          "https://jobify-backend-rsyx5.sevalla.app/api/sitemap/jobs",
+        );
+        if (!response.ok) throw new Error("Failed to fetch jobs");
+        const result = await response.json();
+
+        const mappedJobs = result.data.data.map((job) => {
+          let salaryMin = 0;
+          let salaryMax = 0;
+          if (job.salary_range) {
+            const numbers = job.salary_range.match(/(\d[\d,]*)/g);
+            if (numbers && numbers.length > 0) {
+              salaryMin = parseInt(numbers[0].replace(/,/g, ""), 10);
+              salaryMax =
+                numbers.length > 1
+                  ? parseInt(numbers[1].replace(/,/g, ""), 10)
+                  : salaryMin;
+            }
+          }
+
+          const locationParts = job.location
+            ? job.location.split(",")
+            : ["Unknown"];
+          const country = locationParts[0].trim();
+          const city =
+            locationParts.length > 1 ? locationParts[1].trim() : country;
+
+          return {
+            id: job.id,
+            title: job.title,
+            company: job.company_name || "Unknown Company",
+            location: job.location || "Remote",
+            country: country,
+            city: city,
+            type: job.work_mode || "Remote",
+            employmentType: job.job_type || "Full-time",
+            salary: job.salary_range || "Competitive",
+            salaryMin,
+            salaryMax,
+            posted: "Recently",
+            industry: "Technology",
+            experience: job.experience_level || "Not Specified",
+            description: job.description,
+            requirements: [],
+            skills: [],
+            logo: job.company_logo || null,
+          };
+        });
+
+        setFetchedJobs(mappedJobs);
+        setFilteredJobs(mappedJobs);
+      } catch (err) {
+        console.error("Error fetching jobs:", err);
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  React.useEffect(() => {
+    if (isLoading) return;
+
+    let jobs = [...fetchedJobs];
     if (filters) {
       if (filters.keyword) {
         const k = filters.keyword.toLowerCase();
@@ -38,88 +110,130 @@ export function JobsListings({ filters = null }) {
     }
 
     switch (sortBy) {
-      case "latest":
-        jobs.sort((a, b) => b.postedDate - a.postedDate);
-        break;
-      case "oldest":
-        jobs.sort((a, b) => a.postedDate - b.postedDate);
-        break;
       case "salary-high":
         jobs.sort((a, b) => (b.salaryMax || 0) - (a.salaryMax || 0));
         break;
       case "salary-low":
         jobs.sort((a, b) => (a.salaryMin || 0) - (b.salaryMin || 0));
         break;
+      default:
+        break;
     }
     setFilteredJobs(jobs);
-  }, [filters, sortBy]);
+    setVisibleCount(12);
+    setAnimationKey((prev) => prev + 1);
+  }, [filters, sortBy, fetchedJobs, isLoading]);
+
+  const displayJobs = filteredJobs.slice(0, visibleCount);
+  const handleLoadMore = () => setVisibleCount((prev) => prev + 12);
 
   return (
-    <section className="relative pt-4 sm:pt-6 pb-20 sm:pb-28 bg-[#fafafa]">
+    <section className="relative pt-2 pb-20 sm:pb-28 bg-[#fafafa]">
       <div className="container mx-auto px-4 sm:px-6 md:px-10">
-        <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
-          {/* Header with Sort & Count */}
+        <div className="max-w-7xl mx-auto flex flex-col gap-6">
           <JobsListingsHeader
             count={filteredJobs.length}
             sortBy={sortBy}
             setSortBy={setSortBy}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            {/* Left Side: Job Cards Grid */}
-            <div className="lg:col-span-8">
-              {filteredJobs.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                  <AnimatePresence mode="popLayout">
-                    {filteredJobs.map((job, idx) => (
-                      <motion.div
-                        key={job.id}
-                        layout
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4, delay: idx * 0.05 }}
-                      >
-                        <JobCard job={job} />
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <NoJobsFound />
-              )}
-
-              {filteredJobs.length >= 8 && (
-                <div className="text-center pt-12">
-                  <Button
-                    variant="outline"
-                    className="rounded-2xl border-none bg-white shadow-xl shadow-gray-200/50 text-[#0b2677] hover:bg-[#0b2677] hover:text-white transition-all duration-300 font-black text-[10px] uppercase tracking-[0.2em] px-10 h-14"
-                  >
-                    Load More Jobs
+          {isLoading ? (
+            <div className="flex justify-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#0b2677]"></div>
+            </div>
+          ) : error ? (
+            <div className="text-center py-20 text-red-500">
+              <p>Error loading jobs: {error}</p>
+              <Button onClick={() => window.location.reload()} className="mt-4">
+                Retry
+              </Button>
+            </div>
+          ) : displayJobs.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-min mt-2">
+              <div className="hidden lg:block lg:col-start-4 lg:col-span-2 lg:row-start-1 lg:row-span-12 sticky top-10 h-fit z-10">
+                <JobBanner />
+                <div className="mt-6 p-6 bg-[#0b2677] rounded-[2rem] text-white space-y-4">
+                  <h4 className="text-lg font-black uppercase tracking-tight">
+                    Need Help?
+                  </h4>
+                  <p className="text-xs text-white/60 leading-relaxed font-medium">
+                    Can&apos;t find the right role? Send us your CV and our
+                    consultants will reach out when a fit occurs.
+                  </p>
+                  <Button className="w-full bg-[#9a01cd] hover:bg-[#9a01cd]/90 text-white font-black uppercase tracking-widest h-11 rounded-xl border-none text-[10px]">
+                    Upload CV
                   </Button>
                 </div>
-              )}
-            </div>
-
-            {/* Right Side: Featured Banner Sidebar */}
-            <div className="lg:col-span-4 sticky top-10 h-fit hidden lg:block">
-              <JobBanner />
-
-              {/* Extra Sidebar Info */}
-              <div className="mt-8 p-8 bg-[#0b2677] rounded-[2rem] text-white space-y-6">
-                <h4 className="text-xl font-black uppercase tracking-tight">
-                  Need Help?
-                </h4>
-                <p className="text-sm text-white/60 leading-relaxed font-medium">
-                  Can't find the right role? Send us your CV and our consultants
-                  will reach out when a fit occurs.
-                </p>
-                <Button className="w-full bg-[#9a01cd] hover:bg-[#9a01cd]/90 text-white font-black uppercase tracking-widest h-12 rounded-xl border-none">
-                  Upload CV
-                </Button>
               </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={animationKey}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.04,
+                        delayChildren: 0.05,
+                      },
+                    },
+                    exit: {
+                      transition: {
+                        staggerChildren: 0.02,
+                        staggerDirection: -1,
+                      },
+                    },
+                  }}
+                  className="contents"
+                >
+                  {displayJobs.map((job) => (
+                    <motion.div
+                      key={job.id}
+                      variants={{
+                        hidden: { opacity: 0, y: 40, scale: 0.95 },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          scale: 1,
+                          transition: {
+                            type: "spring",
+                            stiffness: 260,
+                            damping: 20,
+                          },
+                        },
+                        exit: {
+                          opacity: 0,
+                          y: -20,
+                          scale: 0.97,
+                          transition: { duration: 0.15 },
+                        },
+                      }}
+                      className="lg:col-span-1"
+                    >
+                      <JobCard job={job} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </div>
+          ) : (
+            <NoJobsFound />
+          )}
+
+          {!isLoading && !error && filteredJobs.length > visibleCount && (
+            <div className="text-center pt-8">
+              <Button
+                onClick={handleLoadMore}
+                variant="outline"
+                className="rounded-2xl border-none bg-white shadow-xl shadow-gray-200/50 text-[#0b2677] hover:bg-[#0b2677] hover:text-white transition-all duration-300 font-black text-[10px] uppercase tracking-[0.2em] px-10 h-14"
+              >
+                Load More Jobs
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>

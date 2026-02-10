@@ -1,85 +1,100 @@
 "use client";
 
 import Link from "next/link";
-import {
-  MapPin,
-  Briefcase,
-  Clock,
-  ArrowRight,
-  Building2,
-  User,
-} from "lucide-react";
+import { ArrowRight, MapPin, Briefcase, Building2 } from "lucide-react";
 
 export function JobCard({ job }) {
+  const displaySalary = job.salary
+    .replace(/USD/g, "")
+    .replace(/To/gi, "-")
+    .replace(/Negotiable/gi, "Neg.")
+    .trim();
+
   return (
     <Link
       href={`/jobs/${job.id}`}
-      className="group relative flex flex-col bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100/50 transition-all duration-300 hover:shadow-[0_30px_70px_rgba(11,38,119,0.12)] hover:-translate-y-1 hover:border-[#9a01cd]/20 h-full"
+      className="group relative flex flex-col h-full rounded-2xl transition-all duration-500 hover:-translate-y-1"
     >
-      {/* Header */}
-      <div className="flex justify-between items-start mb-5">
-        <div className="space-y-1.5">
-          <h3 className="text-lg sm:text-xl font-black text-[#0b2677] leading-tight group-hover:text-[#9a01cd] transition-colors duration-300">
-            {job.title}
-          </h3>
-          <div className="flex items-center gap-2 text-sm font-bold text-gray-500">
-            <Building2 size={14} className="text-[#9a01cd]/60" />
-            <span>{job.company}</span>
+      {/* Animated Gradient Border */}
+      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-transparent via-transparent to-transparent group-hover:from-[#9a01cd] group-hover:via-[#0b2677] group-hover:to-[#9a01cd] transition-all duration-500 opacity-0 group-hover:opacity-100" />
+
+      {/* Card Body */}
+      <div className="relative flex flex-col h-full bg-white rounded-2xl border border-gray-100 group-hover:border-transparent overflow-hidden transition-all duration-500">
+        {/* Ambient Glow (Hover Only) */}
+        <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-[#9a01cd]/40 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-32 h-32 rounded-full bg-[#0b2677]/30 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+        <div className="relative z-10 p-6 flex flex-col h-full">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0b2677]/5 group-hover:bg-[#9a01cd] transition-colors duration-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#9a01cd] group-hover:bg-white" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#0b2677]/70 group-hover:text-white transition-colors duration-500">
+                {job.employmentType}
+              </span>
+            </div>
+            <span className="text-[9px] font-mono text-gray-300 group-hover:text-[#9a01cd] transition-colors duration-500">
+              #{job.id.toString().padStart(4, "0")}
+            </span>
           </div>
-        </div>
-        <div className="w-10 h-10 rounded-xl bg-[#0b2677]/5 flex items-center justify-center text-[#0b2677] text-lg font-black group-hover:bg-[#9a01cd] group-hover:text-white transition-all duration-300">
-          {job.company.charAt(0)}
-        </div>
-      </div>
 
-      {/* Metadata Grid */}
-      <div className="grid grid-cols-2 gap-y-3 gap-x-2 mb-6">
-        <div className="flex items-center gap-2 text-[11px] font-bold text-[#0b2677]/70 uppercase tracking-wide">
-          <MapPin size={14} className="text-[#9a01cd]/50 shrink-0" />
-          <span className="truncate">
-            {job.city} ({job.type})
-          </span>
-        </div>
-        <div className="flex items-center gap-2 text-[11px] font-bold text-[#0b2677]/70 uppercase tracking-wide">
-          <Briefcase size={14} className="text-[#9a01cd]/50 shrink-0" />
-          <span className="truncate">{job.employmentType}</span>
-        </div>
-        <div className="flex items-center gap-2 text-[11px] font-bold text-[#0b2677]/70 uppercase tracking-wide">
-          <User size={14} className="text-[#9a01cd]/50 shrink-0" />
-          <span className="truncate">{job.experience}</span>
-        </div>
-        <div className="flex items-center gap-2 text-[11px] font-bold text-[#0b2677]/70 uppercase tracking-wide">
-          <Clock size={14} className="text-[#9a01cd]/50 shrink-0" />
-          <span className="truncate">{job.posted}</span>
-        </div>
-      </div>
+          {/* Title & Company */}
+          <div className="mb-6">
+            <h3 className="text-[17px] font-extrabold text-[#0b2677] leading-snug mb-2.5 group-hover:text-[#0b2677] transition-colors duration-300">
+              {job.title}
+            </h3>
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#0b2677]/5 group-hover:bg-[#9a01cd]/20 flex items-center justify-center transition-colors duration-500">
+                <Building2 size={11} className="text-[#9a01cd]" />
+              </div>
+              <p className="text-xs font-semibold text-gray-400 group-hover:text-[#9a01cd] transition-colors duration-500">
+                {job.company}
+              </p>
+            </div>
+          </div>
 
-      {/* Skills Tags */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {job.skills?.slice(0, 3).map((skill, index) => (
-          <span
-            key={index}
-            className="px-2.5 py-1 rounded-md bg-gray-50 text-[10px] font-bold text-gray-500 uppercase tracking-wider group-hover:bg-[#9a01cd]/5 group-hover:text-[#9a01cd] transition-colors"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-auto">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-50 group-hover:bg-[#0b2677]/5 text-[10px] font-bold uppercase tracking-wide text-gray-400 group-hover:text-[#0b2677] transition-all duration-500 border border-transparent group-hover:border-[#0b2677]/10">
+              <MapPin
+                size={11}
+                className="text-[#9a01cd]/50 group-hover:text-[#9a01cd]"
+              />
+              {job.city}
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-50 group-hover:bg-[#0b2677]/5 text-[10px] font-bold uppercase tracking-wide text-gray-400 group-hover:text-[#0b2677] transition-all duration-500 border border-transparent group-hover:border-[#0b2677]/10">
+              <Briefcase
+                size={11}
+                className="text-[#9a01cd]/50 group-hover:text-[#9a01cd]"
+              />
+              {job.type}
+            </div>
+          </div>
 
-      {/* Footer */}
-      <div className="mt-auto pt-4 border-t border-gray-100 flex items-end justify-between">
-        <div>
-          <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-1">
-            Salary Range
-          </p>
-          <p className="text-[#0b2677] font-black text-sm sm:text-base">
-            {job.salary}
-          </p>
-        </div>
+          {/* Footer */}
+          <div className="mt-6 pt-5 border-t border-gray-50 group-hover:border-[#9a01cd]/10 transition-colors duration-500">
+            <div className="flex items-end justify-between">
+              <div>
+                <span className="block text-[9px] font-bold uppercase tracking-widest text-gray-300 mb-1 group-hover:text-[#9a01cd]/50 transition-colors duration-500">
+                  Salary Range
+                </span>
+                <span className="text-sm font-extrabold text-[#0b2677] transition-colors duration-300">
+                  {displaySalary}
+                </span>
+              </div>
 
-        <div className="flex items-center gap-2 text-[#9a01cd] text-xs font-black uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300">
-          Apply Now
-          <ArrowRight size={14} />
+              {/* CTA Orb */}
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-[#9a01cd] blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500 scale-125" />
+                <div className="relative w-10 h-10 rounded-full bg-gray-50 group-hover:bg-[#9a01cd] flex items-center justify-center transition-all duration-500">
+                  <ArrowRight
+                    size={16}
+                    className="text-gray-400 group-hover:text-white -rotate-45 group-hover:rotate-0 transition-all duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Link>

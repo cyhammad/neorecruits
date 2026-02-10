@@ -15,7 +15,7 @@ export const offices = [
     lat: 27.0117,
     lng: 49.6583,
     flag: "🇸🇦",
-    image: "/locations/riyadh.png",
+    image: "/locations/jubail.jpg",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const offices = [
     lat: 40.7128,
     lng: -74.006,
     flag: "🇺🇸",
-    image: "/locations/london.png",
+    image: "/locations/new-york.jpg",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const offices = [
     lat: 52.55,
     lng: -2.0167,
     flag: "🇬🇧",
-    image: "/locations/london.png",
+    image: "/locations/wensbury.jpg",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const offices = [
     lat: 31.5204,
     lng: 74.3587,
     flag: "🇵🇰",
-    image: "/locations/karachi.png",
+    image: "/locations/lahore.jpg",
   },
   {
     id: 5,
@@ -68,7 +68,7 @@ export const offices = [
     lat: 19.076,
     lng: 72.8777,
     flag: "🇮🇳",
-    image: "/locations/karachi.png",
+    image: "/locations/mumbai.jpg",
   },
 ];
 
