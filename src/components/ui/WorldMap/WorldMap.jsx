@@ -108,7 +108,12 @@ export function WorldMap({
 
       <AnimatePresence>
         {hoveredLocation && (
-          <LocationPopup location={hoveredLocation} position={popupPosition} />
+          <div className="hidden sm:block">
+            <LocationPopup
+              location={hoveredLocation}
+              position={popupPosition}
+            />
+          </div>
         )}
       </AnimatePresence>
     </div>

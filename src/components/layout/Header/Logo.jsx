@@ -12,9 +12,8 @@ export function Logo({ className }) {
         alt="NeoRecruits"
         width={160}
         height={48}
-        style={{ width: "160px", height: "auto" }}
         className={cn(
-          "object-contain object-left transition-all duration-300",
+          "w-32 md:w-40 h-auto object-contain object-left transition-all duration-300",
           "brightness-0 invert",
           className,
         )}

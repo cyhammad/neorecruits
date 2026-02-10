@@ -24,7 +24,7 @@ export function MobileMenu({ navLinks }) {
             size="icon"
             className={cn(
               "transition-all duration-300",
-              "text-white hover:bg-white/10",
+              "text-white hover:bg-white/10 active:scale-95",
             )}
           >
             <Menu className="w-6 h-6" />
@@ -32,26 +32,29 @@ export function MobileMenu({ navLinks }) {
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="w-[320px] sm:w-[400px] bg-white/95 backdrop-blur-xl border-l border-white/20 p-0 overflow-y-auto"
+          className="w-full sm:max-w-[400px] bg-white/98 backdrop-blur-md border-l border-[#e5e5e5]/50 p-0 flex flex-col h-[100dvh]"
         >
-          <SheetHeader className="px-6 pt-6 pb-4 border-b border-[#e5e5e5]/50">
+          <SheetHeader className="px-6 py-5 border-b border-[#e5e5e5]/50 shrink-0">
             <SheetTitle className="text-left">
-              <div className="relative h-10 w-40">
+              <div className="relative h-8 w-32">
                 <Image
                   src="/mainLogo.png"
                   alt="NeoRecruits"
                   fill
-                  sizes="160px"
+                  sizes="128px"
                   className="object-contain object-left brightness-0"
+                  priority
                 />
               </div>
             </SheetTitle>
           </SheetHeader>
 
-          <div className="flex flex-col px-6 pt-6 pb-6">
-            <MobileNavLinks navLinks={navLinks} />
-            <div className="h-px bg-linear-to-r from-transparent via-[#e5e5e5] to-transparent my-4"></div>
-            <MobileMenuActions />
+          <div className="flex-1 overflow-y-auto custom-scrollbar pt-6 pb-10 px-4">
+            <div className="flex flex-col gap-2">
+              <MobileNavLinks navLinks={navLinks} />
+              <div className="h-px bg-[#e5e5e5]/50 my-4 mx-2"></div>
+              <MobileMenuActions />
+            </div>
           </div>
         </SheetContent>
       </Sheet>

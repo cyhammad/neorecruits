@@ -54,8 +54,8 @@ export function TestimonialCarousel({ isInView }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-6">
-        <div className="flex gap-2">
+      <div className="flex items-center justify-center lg:justify-between mt-6">
+        <div className="hidden lg:flex gap-2">
           <NavButton direction="prev" onClick={scrollPrev} isStatic />
           <NavButton direction="next" onClick={scrollNext} isStatic />
         </div>

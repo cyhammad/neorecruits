@@ -26,7 +26,7 @@ export function IndustriesCarousel({ isInView }) {
       transition={{ ...smoothTransition, delay: staggerDelay * 1 }}
       className="lg:col-span-8 flex flex-col gap-6 sm:gap-8"
     >
-      <div className="flex justify-end gap-3 mb-2">
+      <div className="hidden md:flex justify-end gap-3 mb-2">
         <NavButton direction="prev" onClick={scrollPrev} />
         <NavButton direction="next" onClick={scrollNext} />
       </div>

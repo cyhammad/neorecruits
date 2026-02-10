@@ -9,7 +9,7 @@ import { jobListings } from "../../jobs/_components/JobsListings/jobsData";
 
 export function Jobs() {
   const ref = React.useRef(null);
-  const featuredJobs = jobListings.slice(0, 3);
+  const featuredJobs = jobListings.slice(0, 4);
 
   return (
     <section
@@ -24,7 +24,7 @@ export function Jobs() {
 
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl font-black text-[#0b2677] tracking-tight">
+            <h3 className="text-xl sm:text-3xl font-black text-[#0b2677] tracking-tight">
               Featured Opportunities
             </h3>
             <a
@@ -48,7 +48,7 @@ export function Jobs() {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {featuredJobs.map((job) => (
               <JobCard key={job.id} job={job} />
             ))}

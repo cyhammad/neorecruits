@@ -38,10 +38,10 @@ export function Header() {
       )}
     >
       <div className="pointer-events-auto">
-        {/* TopBar Wrapper: Collapses on scroll */}
+        {/* TopBar Wrapper: Collapses on scroll, hidden on mobile */}
         <div
           className={cn(
-            "transition-all duration-500 ease-[0.22,1,0.36,1] overflow-hidden",
+            "transition-all duration-500 ease-[0.22,1,0.36,1] overflow-hidden hidden md:block",
             isScrolled ? "h-0 opacity-0" : "h-12 opacity-100",
           )}
         >
@@ -52,7 +52,7 @@ export function Header() {
         <div
           className={cn(
             "relative transition-all duration-500",
-            isScrolled ? "py-3" : "py-4",
+            isScrolled ? "py-2 md:py-3" : "py-3 md:py-4",
           )}
         >
           <div className="container mx-auto px-4 sm:px-6 md:px-10">

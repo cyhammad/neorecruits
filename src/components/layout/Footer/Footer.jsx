@@ -25,13 +25,21 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0b2677] text-white pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 border-t border-white/5">
-      <div className="container mx-auto px-4 sm:px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16 max-w-7xl mx-auto">
-          <FooterBrand />
-          <FooterLinksColumn title="Company" links={companyLinks} />
-          <FooterLinksColumn title="Services" links={serviceLinks} />
-          <FooterNewsletter />
+    <footer className="bg-[#0b2677] text-white pt-16 sm:pt-20 md:pt-28 pb-10 sm:pb-12 border-t border-white/5">
+      <div className="container mx-auto px-6 sm:px-8 md:px-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 mb-16 sm:mb-20 max-w-7xl mx-auto">
+          <div className="col-span-2 lg:col-span-1">
+            <FooterBrand />
+          </div>
+          <div className="col-span-1 lg:col-span-1">
+            <FooterLinksColumn title="Company" links={companyLinks} />
+          </div>
+          <div className="col-span-1 lg:col-span-1">
+            <FooterLinksColumn title="Services" links={serviceLinks} />
+          </div>
+          <div className="col-span-2 lg:col-span-1">
+            <FooterNewsletter />
+          </div>
         </div>
         <FooterBottom />
       </div>

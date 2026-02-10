@@ -5,13 +5,19 @@ import { useInView } from "framer-motion";
 import { LocationsHeader } from "./LocationsHeader";
 import { LocationsMap } from "./LocationsMap";
 import { LocationsFooter } from "./LocationsFooter";
+import { LocationTabs } from "./LocationTabs";
+import { offices } from "./locationsData";
 
 export function Locations() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const [activeId, setActiveId] = React.useState(offices[0].id);
 
   return (
-    <section ref={ref} className="relative bg-[#0b2677] overflow-hidden">
+    <section
+      ref={ref}
+      className="relative bg-[#0b2677] overflow-hidden pb-10 sm:pb-0"
+    >
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -20,7 +26,12 @@ export function Locations() {
       />
 
       <LocationsHeader isInView={isInView} />
-      <LocationsMap isInView={isInView} />
+      <LocationsMap
+        isInView={isInView}
+        activeId={activeId}
+        onActiveIdChange={setActiveId}
+      />
+      <LocationTabs activeId={activeId} onActiveIdChange={setActiveId} />
       <LocationsFooter isInView={isInView} />
     </section>
   );

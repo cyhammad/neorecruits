@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useInView } from "framer-motion";
+import { motion, useInView, useAnimation } from "framer-motion";
 import { BlogHeader } from "./BlogHeader";
 import { BlogCard } from "./BlogCard";
 import { posts } from "./blogData";
@@ -9,6 +9,31 @@ import { posts } from "./blogData";
 export function Blog() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
+  const controls = useAnimation();
+  const [isPaused, setIsPaused] = React.useState(false);
+
+  // Width calculation for the marquee loop
+  const cardWidth = 85; // vw
+  const gapWidth = 24; // px
+  const totalCards = posts.length;
+
+  React.useEffect(() => {
+    if (isInView && !isPaused) {
+      controls.start({
+        x: [0, -(85 * totalCards + 24 * totalCards)],
+        transition: {
+          duration: 35, // Increased speed (from 60s)
+          ease: "linear",
+          repeat: Infinity,
+        },
+      });
+    } else {
+      controls.stop();
+    }
+  }, [isInView, isPaused, controls, totalCards]);
+
+  const handlePointerDown = () => setIsPaused(true);
+  const handlePointerUp = () => setIsPaused(false);
 
   return (
     <section
@@ -27,8 +52,8 @@ export function Blog() {
         <BlogHeader isInView={isInView} />
 
         <div className="max-w-7xl mx-auto">
-          {/* Asymmetric Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
+          {/* Desktop View: Asymmetric Grid Layout */}
+          <div className="hidden md:grid grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
             {/* Top Row: Large Featured + Standard */}
             <div className="md:col-span-8">
               <BlogCard
@@ -63,6 +88,44 @@ export function Blog() {
                 isInView={isInView}
                 variant="featured"
               />
+            </div>
+          </div>
+
+          {/* Mobile View: Continuous Smooth Marquee with Interaction */}
+          <div
+            className="md:hidden w-full relative -mx-4 overflow-hidden touch-none"
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerLeave={handlePointerUp}
+          >
+            {/* Fading Edges */}
+            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0b2677] to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0b2677] to-transparent z-20 pointer-events-none" />
+
+            <div className="w-max">
+              <motion.div
+                animate={controls}
+                drag="x"
+                dragConstraints={{ left: -2000, right: 0 }}
+                onDragStart={() => setIsPaused(true)}
+                onDragEnd={() => setIsPaused(false)}
+                className="flex gap-6 px-4 py-8"
+              >
+                {/* Triplicate posts for seamless loop */}
+                {[...posts, ...posts, ...posts].map((post, index) => (
+                  <div
+                    key={`${post.id}-${index}`}
+                    className="w-[85vw] flex-none"
+                  >
+                    <BlogCard
+                      post={post}
+                      index={index % posts.length}
+                      isInView={true}
+                      variant="standard"
+                    />
+                  </div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>

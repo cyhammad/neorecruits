@@ -6,11 +6,11 @@ import { Input } from "@/components/ui/input";
 
 export function FooterNewsletter() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 text-center lg:text-left">
       <h4 className="text-lg font-bold uppercase tracking-wider">
         Stay Updated
       </h4>
-      <p className="text-white/60 text-sm leading-relaxed">
+      <p className="text-white/60 text-sm leading-relaxed max-w-sm mx-auto lg:mx-0">
         Subscribe to our newsletter for the latest job market trends and career
         advice.
       </p>

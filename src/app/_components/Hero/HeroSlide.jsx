@@ -21,17 +21,21 @@ export function HeroSlide({ slide, index, current }) {
     >
       <HeroBackground image={slide.image} title={slide.title} index={index} />
 
-      <div className="relative z-10 container mx-auto px-4 h-full grid grid-cols-2 place-items-center pt-20 sm:pt-24 md:pt-16 max-w-7xl">
-        <AnimatePresence mode="wait">
-          {current === index && <HeroContent slide={slide} />}
-        </AnimatePresence>
-        <Image
-          src="/spinner-nobg.png"
-          alt="logo"
-          width={500}
-          height={500}
-          className="size-100 animate-[spin_20s_linear_infinite]"
-        />
+      <div className="relative z-10 container mx-auto px-6 sm:px-10 h-full flex flex-col justify-center items-start md:grid md:grid-cols-2 md:items-center max-w-7xl">
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            {current === index && <HeroContent slide={slide} />}
+          </AnimatePresence>
+        </div>
+        <div className="hidden md:flex items-center justify-center">
+          <Image
+            src="/spinner-nobg.png"
+            alt="logo"
+            width={500}
+            height={500}
+            className="size-80 lg:size-100 animate-[spin_20s_linear_infinite] opacity-80"
+          />
+        </div>
       </div>
     </CarouselItem>
   );

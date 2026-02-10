@@ -33,7 +33,7 @@ export function LocationsHeader({ isInView }) {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ ...smoothTransition, delay: 0.3 }}
-            className="text-white/60 leading-relaxed text-sm sm:text-base max-w-xl font-medium"
+            className="text-white/60 leading-relaxed text-sm sm:text-base max-w-xl font-medium hidden sm:block"
           >
             Hover over the glowing markers to explore our global offices
           </motion.p>

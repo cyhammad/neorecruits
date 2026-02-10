@@ -6,11 +6,11 @@ export function FooterBottom() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="pt-6 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left max-w-7xl mx-auto">
-      <p className="text-white/40 text-xs">
+    <div className="pt-8 mt-4 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-6 text-center lg:text-left max-w-7xl mx-auto">
+      <p className="text-white/30 text-[10px] sm:text-xs">
         &copy; {currentYear} NeoRecruits. All rights reserved.
       </p>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap justify-center gap-y-2 gap-x-6 sm:gap-x-8">
         <FooterBottomLink href="/privacy" label="Privacy Policy" />
         <FooterBottomLink href="/terms" label="Terms of Service" />
         <FooterBottomLink href="/cookies" label="Cookie Policy" />

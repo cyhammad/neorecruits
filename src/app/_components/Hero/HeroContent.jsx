@@ -41,7 +41,7 @@ export function HeroContent({ slide }) {
         className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4"
       >
         <Button
-          className="h-11 sm:h-12 px-6 sm:px-4 rounded-lg bg-[#9A01CD] border-none text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase w-full sm:w-auto group overflow-hidden relative transition-all duration-200 active:scale-[0.96] shadow-2xl shadow-[#9a01cd]/30 hover:shadow-white/20"
+          className="h-11 sm:h-12 px-8 sm:px-10 rounded-lg bg-[#9A01CD] border-none text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase w-fit group overflow-hidden relative transition-all duration-200 active:scale-[0.96] shadow-2xl shadow-[#9a01cd]/30 hover:shadow-white/20"
           asChild
         >
           <Link

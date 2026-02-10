@@ -44,17 +44,17 @@ export function Services() {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="max-w-3xl mb-12 sm:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ ...smoothTransition, delay: 0 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Global Recruitment Solutions <br className="hidden sm:block" />
               for Every Industry.
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed max-w-2xl font-medium">
+            <p className="text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl font-medium">
               NeoRecruits' recruitment and management services are operational
               across 6 continents. We offer a flexible and trusted partnership
               for both candidates and employers.
@@ -63,7 +63,7 @@ export function Services() {
         </div>
 
         {/* Services Accordion Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
           {/* Left Column: Accordion */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -74,7 +74,7 @@ export function Services() {
               type="single"
               value={activeItem}
               onValueChange={(value) => value && setActiveItem(value)}
-              className="w-full space-y-4"
+              className="w-full space-y-3 sm:space-y-4"
             >
               {servicesData.map((service) => (
                 <AccordionItem
@@ -82,18 +82,20 @@ export function Services() {
                   value={service.id}
                   className="border-none group/item transition-all duration-500 rounded-2xl overflow-hidden hover:bg-white/5 data-[state=open]:bg-white data-[state=open]:shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
                 >
-                  <AccordionTrigger className="hover:no-underline py-6 px-8 text-xl sm:text-2xl font-bold text-white/40 transition-all duration-300 group-data-[state=open]/item:text-[#0b2677]">
-                    <div className="flex items-center gap-6">
+                  <AccordionTrigger className="hover:no-underline py-4 px-4 sm:py-6 sm:px-8 text-lg sm:text-2xl font-bold text-white/40 transition-all duration-300 group-data-[state=open]/item:text-[#0b2677]">
+                    <div className="flex items-center gap-4 sm:gap-6">
                       <div
-                        className={`p-3 rounded-xl transition-all duration-500 scale-90 group-data-[state=open]/item:scale-100 group-data-[state=open]/item:bg-[#0b2677] group-data-[state=open]/item:text-white ${activeItem === service.id ? "bg-[#0b2677] text-white" : "bg-white/5 text-white/40"}`}
+                        className={`p-2.5 sm:p-3 rounded-xl transition-all duration-500 scale-90 group-data-[state=open]/item:scale-100 group-data-[state=open]/item:bg-[#0b2677] group-data-[state=open]/item:text-white ${activeItem === service.id ? "bg-[#0b2677] text-white" : "bg-white/5 text-white/40"}`}
                       >
-                        <service.icon className="w-6 h-6" />
+                        <service.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
-                      <span className="text-left">{service.title}</span>
+                      <span className="text-left text-base sm:text-2xl">
+                        {service.title}
+                      </span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-[#0b2677]/80 text-base sm:text-lg leading-relaxed pt-0 pb-8 px-8">
-                    <div className="pl-16 space-y-8">
+                  <AccordionContent className="text-[#0b2677]/80 text-sm sm:text-lg leading-relaxed pt-0 pb-6 sm:pb-8 px-4 sm:px-8">
+                    <div className="pl-0 sm:pl-16 space-y-6 sm:space-y-8">
                       <p className="font-medium group-data-[state=open]/item:text-[#0b2677]">
                         {service.description}
                       </p>

@@ -92,21 +92,21 @@ export function WhyNeo() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8"
           >
             {reasons.map((reason, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group p-8 rounded-2xl bg-white border border-[#0b2677]/5 hover:border-[#9a01cd]/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
+                className="group p-5 sm:p-8 rounded-2xl bg-white border border-[#0b2677]/5 hover:border-[#9a01cd]/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
               >
-                <div className="size-14 rounded-xl bg-[#0b2677]/5 flex items-center justify-center mb-6 group-hover:bg-[#9a01cd] transition-colors duration-300">
-                  <reason.icon className="size-7 text-[#0b2677] group-hover:text-white transition-colors duration-300" />
+                <div className="size-10 sm:size-14 rounded-xl bg-[#0b2677]/5 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#9a01cd] transition-colors duration-300">
+                  <reason.icon className="size-5 sm:size-7 text-[#0b2677] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0b2677] mb-3 group-hover:text-[#9a01cd] transition-colors duration-300">
+                <h3 className="text-[13px] sm:text-lg font-bold text-[#0b2677] mb-2 sm:mb-3 group-hover:text-[#9a01cd] transition-colors duration-300 line-clamp-2">
                   {reason.title}
                 </h3>
-                <p className="text-[#0b2677]/60 text-sm leading-relaxed font-medium">
+                <p className="text-[#0b2677]/60 text-[11px] sm:text-sm leading-relaxed font-medium line-clamp-3 sm:line-clamp-none">
                   {reason.description}
                 </p>
               </motion.div>
