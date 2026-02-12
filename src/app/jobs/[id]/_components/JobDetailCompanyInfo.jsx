@@ -16,78 +16,78 @@ import { Badge } from "@/components/ui/badge";
 
 export function JobDetailCompanyInfo({ job }) {
   return (
-    <section className="bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/10 shadow-xl space-y-8">
-      <div className="flex items-center gap-4 border-b border-white/5 pb-6">
-        <div className="w-10 h-10 rounded-full bg-[#9a01cd]/20 flex items-center justify-center">
-          <Building2 className="w-5 h-5 text-[#9a01cd]" />
+    <section className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-sm space-y-8 group transition-all duration-300 hover:shadow-xl">
+      <div className="flex items-center gap-4 border-b border-gray-50 pb-6">
+        <div className="size-10 rounded-full bg-[#9a01cd]/10 flex items-center justify-center group-hover:bg-[#9a01cd] transition-colors duration-300">
+          <Building2 className="size-5 text-[#9a01cd] group-hover:text-white transition-colors duration-300" />
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-black text-[#0b2677] tracking-tight uppercase">
           About the Company
         </h2>
       </div>
 
       <div className="space-y-6">
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white tracking-tight">
+          <h3 className="text-2xl font-black text-[#0b2677] tracking-tight">
             {job.companyInfo.name}
           </h3>
-          <p className="text-base text-white/70 leading-relaxed font-medium">
+          <p className="text-base text-[#0b2677]/70 leading-relaxed font-medium">
             {job.companyInfo.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <Users className="w-5 h-5 text-white/70" />
+          <div className="p-5 rounded-2xl bg-gray-50 border border-gray-100 flex items-center gap-4 group/item hover:bg-[#0b2677] transition-all duration-300">
+            <div className="size-10 rounded-full bg-white flex items-center justify-center shrink-0 border border-gray-200 group-hover/item:border-white/20 group-hover/item:bg-white/10">
+              <Users className="size-5 text-[#0b2677] group-hover/item:text-white" />
             </div>
             <div>
-              <p className="text-xs text-white/40 font-bold uppercase tracking-wider mb-0.5">
+              <p className="text-xs text-[#0b2677]/40 group-hover/item:text-white/40 font-bold uppercase tracking-wider mb-0.5 transition-colors">
                 Size
               </p>
-              <p className="text-sm font-bold text-white">
+              <p className="text-sm font-bold text-[#0b2677] group-hover/item:text-white transition-colors">
                 {job.companyInfo.size || "Confidential"}
               </p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <Briefcase className="w-5 h-5 text-white/70" />
+          <div className="p-5 rounded-2xl bg-gray-50 border border-gray-100 flex items-center gap-4 group/item hover:bg-[#0b2677] transition-all duration-300">
+            <div className="size-10 rounded-full bg-white flex items-center justify-center shrink-0 border border-gray-200 group-hover/item:border-white/20 group-hover/item:bg-white/10">
+              <Briefcase className="size-5 text-[#0b2677] group-hover/item:text-white" />
             </div>
             <div>
-              <p className="text-xs text-white/40 font-bold uppercase tracking-wider mb-0.5">
+              <p className="text-xs text-[#0b2677]/40 group-hover/item:text-white/40 font-bold uppercase tracking-wider mb-0.5 transition-colors">
                 Industry
               </p>
-              <p className="text-sm font-bold text-white">
+              <p className="text-sm font-bold text-[#0b2677] group-hover/item:text-white transition-colors">
                 {job.companyInfo.industry}
               </p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <Calendar className="w-5 h-5 text-white/70" />
+          <div className="p-5 rounded-2xl bg-gray-50 border border-gray-100 flex items-center gap-4 group/item hover:bg-[#0b2677] transition-all duration-300">
+            <div className="size-10 rounded-full bg-white flex items-center justify-center shrink-0 border border-gray-200 group-hover/item:border-white/20 group-hover/item:bg-white/10">
+              <Calendar className="size-5 text-[#0b2677] group-hover/item:text-white" />
             </div>
             <div>
-              <p className="text-xs text-white/40 font-bold uppercase tracking-wider mb-0.5">
+              <p className="text-xs text-[#0b2677]/40 group-hover/item:text-white/40 font-bold uppercase tracking-wider mb-0.5 transition-colors">
                 Founded
               </p>
-              <p className="text-sm font-bold text-white">
+              <p className="text-sm font-bold text-[#0b2677] group-hover/item:text-white transition-colors">
                 {job.companyInfo.founded || "Not Listed"}
               </p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-              <MapPin className="w-5 h-5 text-white/70" />
+          <div className="p-5 rounded-2xl bg-gray-50 border border-gray-100 flex items-center gap-4 group/item hover:bg-[#0b2677] transition-all duration-300">
+            <div className="size-10 rounded-full bg-white flex items-center justify-center shrink-0 border border-gray-200 group-hover/item:border-white/20 group-hover/item:bg-white/10">
+              <MapPin className="size-5 text-[#0b2677] group-hover/item:text-white" />
             </div>
             <div className="min-w-0">
-              <p className="text-xs text-white/40 font-bold uppercase tracking-wider mb-0.5">
+              <p className="text-xs text-[#0b2677]/40 group-hover/item:text-white/40 font-bold uppercase tracking-wider mb-0.5 transition-colors">
                 Headquarters
               </p>
-              <p className="text-sm font-bold text-white truncate">
+              <p className="text-sm font-bold text-[#0b2677] group-hover/item:text-white truncate transition-colors">
                 {job.companyInfo.address}
               </p>
             </div>

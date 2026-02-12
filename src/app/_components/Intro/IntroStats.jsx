@@ -16,7 +16,7 @@ export function IntroStats({ isInView }) {
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ ...smoothTransition, delay: staggerDelay * 4 }}
-        className="hidden lg:flex flex-nowrap items-center justify-center gap-x-14 pt-16 mt-20 max-w-7xl mx-auto w-full"
+        className="hidden md:flex flex-nowrap items-center justify-center gap-x-14 pt-16 mt-20 max-w-7xl mx-auto w-full"
       >
         {stats.map((stat, index) => (
           <React.Fragment key={stat.label}>
@@ -35,7 +35,7 @@ export function IntroStats({ isInView }) {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1 }}
-        className="lg:hidden w-full pt-10 mt-12 overflow-hidden relative"
+        className="md:hidden w-full pt-10 mt-12 overflow-hidden relative"
       >
         {/* Subtle Horizontal Gradients for smooth fade at edges */}
         <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />

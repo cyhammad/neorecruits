@@ -7,12 +7,12 @@ export function JobDetailResponsibilities({ job }) {
   if (!job.responsibilities || job.responsibilities.length === 0) return null;
 
   return (
-    <section className="bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/10 shadow-xl space-y-8">
-      <div className="flex items-center gap-4 border-b border-white/5 pb-6">
-        <div className="w-10 h-10 rounded-full bg-[#9a01cd]/20 flex items-center justify-center">
-          <ListChecks className="w-5 h-5 text-[#9a01cd]" />
+    <section className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-sm space-y-8 group transition-all duration-300 hover:shadow-xl">
+      <div className="flex items-center gap-4 border-b border-gray-50 pb-6">
+        <div className="size-10 rounded-full bg-[#9a01cd]/10 flex items-center justify-center group-hover:bg-[#9a01cd] transition-colors duration-300">
+          <ListChecks className="size-5 text-[#9a01cd] group-hover:text-white transition-colors duration-300" />
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-black text-[#0b2677] tracking-tight uppercase">
           Key Responsibilities
         </h2>
       </div>
@@ -21,12 +21,12 @@ export function JobDetailResponsibilities({ job }) {
         {job.responsibilities.map((responsibility, index) => (
           <li
             key={index}
-            className="flex items-start gap-4 group p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-colors duration-300"
+            className="flex items-start gap-4 group/item p-4 bg-gray-50 hover:bg-[#0b2677] rounded-2xl transition-all duration-300"
           >
-            <div className="w-6 h-6 flex items-center justify-center rounded-full bg-[#9a01cd]/20 shrink-0 mt-0.5">
-              <div className="w-2 h-2 rounded-full bg-[#9a01cd]" />
+            <div className="size-6 flex items-center justify-center rounded-full bg-[#9a01cd]/20 shrink-0 mt-0.5 group-hover/item:bg-white/20">
+              <div className="size-2 rounded-full bg-[#9a01cd] group-hover/item:bg-white" />
             </div>
-            <span className="text-base text-white/80 font-medium leading-relaxed group-hover:text-white transition-colors duration-300">
+            <span className="text-base text-[#0b2677]/70 font-medium leading-relaxed group-hover/item:text-white transition-colors duration-300">
               {responsibility}
             </span>
           </li>

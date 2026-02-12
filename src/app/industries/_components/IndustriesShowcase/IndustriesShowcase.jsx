@@ -28,8 +28,8 @@ export function IndustriesShowcase() {
             </p>
           </div>
 
-          {/* Logic Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 auto-rows-[minmax(400px,auto)]">
+          {/* Desktop/Tablet Grid View */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 auto-rows-[minmax(400px,auto)]">
             {industries.map((ind, idx) => (
               <motion.div
                 key={ind.id}
@@ -46,6 +46,27 @@ export function IndustriesShowcase() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile Carousel View (Automatic Slider) */}
+          <div className="md:hidden w-screen -mx-4 relative overflow-hidden group/marquee">
+            <div className="flex w-max animate-marquee pause-on-active cursor-grab active:cursor-grabbing">
+              {[...industries, ...industries].map((ind, idx) => (
+                <div
+                  key={`${ind.id}-${idx}`}
+                  className="w-[320px] h-[450px] px-3 flex-none"
+                >
+                  <IndustryShowcaseCard industry={ind} />
+                </div>
+              ))}
+            </div>
+
+            {/* Hold to Pause Indicator */}
+            <div className="flex justify-center mt-6">
+              <span className="text-[10px] text-[#0b2677]/40 font-black uppercase tracking-[0.2em] animate-pulse">
+                Hold to Pause
+              </span>
+            </div>
           </div>
         </div>
       </div>

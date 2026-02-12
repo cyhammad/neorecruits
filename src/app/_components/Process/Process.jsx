@@ -37,14 +37,14 @@ function ProcessStep({ step, index, isInView, scrollProgress }) {
       className="flex flex-col items-center text-center group"
     >
       {/* Icon Circle */}
-      <div className="relative mb-8">
+      <div className="relative mb-4 sm:mb-8">
         <div
           className={cn(
-            "w-20 h-20 rounded-full flex items-center justify-center transition-all duration-700 shadow-lg relative z-20",
-            "bg-[#0b2677] border-2 border-white/10",
-            "lg:bg-gradient-to-br lg:border-none",
+            "size-16 sm:size-20 rounded-full flex items-center justify-center transition-all duration-700 shadow-lg relative z-20",
+            "bg-white/5 border border-white/10",
+            "md:bg-[#0b2677] md:border-2",
             active
-              ? "scale-110 shadow-[#9a01cd]/40 border-transparent"
+              ? "scale-110 shadow-[#9a01cd]/40 border-transparent bg-transparent"
               : "scale-100 shadow-none",
           )}
         >
@@ -59,8 +59,8 @@ function ProcessStep({ step, index, isInView, scrollProgress }) {
 
           <step.icon
             className={cn(
-              "w-8 h-8 stroke-[2.5px] relative z-10 transition-colors duration-700",
-              active ? "text-white" : "text-white/40 md:text-white",
+              "w-6 h-6 sm:w-8 sm:h-8 stroke-[2.5px] relative z-10 transition-colors duration-700",
+              active ? "text-white" : "text-white/40",
             )}
           />
         </div>
@@ -68,7 +68,7 @@ function ProcessStep({ step, index, isInView, scrollProgress }) {
         {/* Step Number Badge */}
         <div
           className={cn(
-            "absolute -top-1 -right-1 size-7 rounded-full text-white text-[10px] font-black flex items-center justify-center border-2 border-[#0b2677] z-30 transition-colors duration-700",
+            "absolute -top-1 -right-1 size-5 sm:size-7 rounded-full text-white text-[8px] sm:text-[10px] font-black flex items-center justify-center border-2 border-[#0b2677] z-30 transition-colors duration-700",
             active ? "bg-[#9a01cd]" : "bg-white/20",
           )}
         >
@@ -77,11 +77,11 @@ function ProcessStep({ step, index, isInView, scrollProgress }) {
       </div>
 
       {/* Content */}
-      <div className="max-w-[240px] px-2 min-h-[60px] flex items-center justify-center">
+      <div className="max-w-[120px] sm:max-w-[240px] px-1 sm:px-2 min-h-[40px] sm:min-h-[60px] flex items-start justify-center">
         <p
           className={cn(
-            "text-sm sm:text-base font-bold leading-tight tracking-wide transition-colors duration-700",
-            active ? "text-white" : "text-white/40 md:text-white",
+            "text-[10px] sm:text-base font-black uppercase tracking-widest leading-tight transition-colors duration-700",
+            active ? "text-white" : "text-white/40",
           )}
         >
           {step.title}
@@ -138,18 +138,18 @@ export function Process() {
 
         {/* Steps Flow */}
         <div className="relative">
-          {/* DESKTOP: Horizontal Connector Line */}
-          <div className="absolute top-10 left-[12%] right-[12%] h-[1px] bg-sky-200/20 hidden lg:block" />
+          {/* DESKTOP/TABLET: Horizontal Connector Line */}
+          <div className="absolute top-10 left-[12%] right-[12%] h-[1px] bg-sky-200/20 hidden md:block" />
 
-          {/* MOBILE: Animated Vertical Connector Line */}
-          <div className="absolute left-[50%] top-10 bottom-[140px] w-[2px] bg-white/10 lg:hidden -translate-x-1/2 overflow-hidden">
+          {/* MOBILE: Hidden for 2x2 grid */}
+          <div className="absolute left-[50%] top-10 bottom-[140px] w-[2px] bg-white/10 hidden md:hidden -translate-x-1/2 overflow-hidden">
             <motion.div
               style={{ scaleY: pathLength, originY: 0 }}
               className="w-full h-full bg-gradient-to-b from-[#9a01cd] to-sky-400"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 lg:gap-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-10 sm:gap-16 md:gap-4 lg:gap-8 relative z-10">
             {steps.map((step, index) => (
               <ProcessStep
                 key={step.id}

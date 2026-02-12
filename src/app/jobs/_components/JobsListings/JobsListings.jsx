@@ -149,7 +149,7 @@ export function JobsListings({ filters = null }) {
               </Button>
             </div>
           ) : displayJobs.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-min mt-2">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 auto-rows-min mt-2">
               <div className="hidden lg:block lg:col-start-4 lg:col-span-2 lg:row-start-1 lg:row-span-12 sticky top-10 h-fit z-10">
                 <JobBanner />
                 <div className="mt-6 p-6 bg-[#0b2677] rounded-[2rem] text-white space-y-4">

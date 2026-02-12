@@ -41,19 +41,19 @@ export function AboutHero({ activeTab, setActiveTab, tabs }) {
           </div>
         </div>
 
-        {/* Tabs Section - Now in flow to avoid overlap */}
-        <div className="max-w-7xl mx-auto w-full pt-8">
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
+        {/* Tabs Section - Optimized for Mobile Scrolling */}
+        <div className="max-w-7xl mx-auto w-full pt-8 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="flex flex-nowrap sm:flex-wrap gap-2 sm:gap-3">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`
-                  relative h-10 sm:h-12 px-4 sm:px-6 flex items-center justify-center text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all duration-200
+                  relative h-9 sm:h-12 px-4 sm:px-6 flex items-center justify-center text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest transition-all duration-300 whitespace-nowrap
                   ${
                     activeTab === tab.id
                       ? "text-white bg-[#9a01cd] border border-[#9a01cd] rounded-sm shadow-[0_0_15px_rgba(154,1,205,0.4)]"
-                      : "text-white/80 border border-white/25 rounded-sm hover:bg-white/10"
+                      : "text-white/60 border border-white/10 rounded-sm hover:bg-white/10"
                   }
                 `}
               >

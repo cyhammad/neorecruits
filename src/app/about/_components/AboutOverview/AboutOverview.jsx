@@ -146,27 +146,67 @@ export function AboutOverview() {
             </motion.div>
           </div>
 
-          {/* Measurable Impact Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
+          {/* Desktop/Tablet View: Fixed Grid layout */}
+          <div className="hidden md:grid grid-cols-4 gap-12 sm:gap-12">
             {impactStats.map((stat, idx) => (
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="space-y-4 text-center sm:text-left"
+                className="space-y-4 text-left"
               >
-                <div className="flex items-center justify-center sm:justify-start gap-3">
-                  <div className="p-3 rounded-xl bg-[#9a01cd]/10 text-[#9a01cd]">
-                    <stat.icon className="w-6 h-6" />
+                <div className="flex items-center justify-start gap-4 group">
+                  <div className="size-12 sm:size-14 rounded-2xl bg-[#9a01cd]/10 flex items-center justify-center group-hover:bg-[#9a01cd] transition-all duration-500">
+                    <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#9a01cd] group-hover:text-white transition-colors duration-500" />
                   </div>
-                  <span className="text-3xl sm:text-4xl font-black text-[#0b2677]">
-                    {stat.value}
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-3xl sm:text-4xl font-black text-[#0b2677]">
+                      {stat.value}
+                    </span>
+                    <p className="text-[10px] sm:text-xs text-[#0b2677]/60 font-black uppercase tracking-widest mt-1">
+                      {stat.label}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm sm:text-base text-[#0b2677]/60 font-bold uppercase tracking-wider">
-                  {stat.label}
-                </p>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile View: Continuous Smooth Marquee */}
+          <div className="md:hidden w-screen -mx-4 relative overflow-hidden">
+            {/* Subtle Gradient Fades */}
+            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+            <div className="flex w-[200%] gap-12 py-4">
+              <motion.div
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="flex items-center gap-12 pr-12"
+              >
+                {[...impactStats, ...impactStats].map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-none flex items-center gap-4 min-w-[200px]"
+                  >
+                    <div className="size-10 rounded-xl bg-[#9a01cd]/10 flex items-center justify-center">
+                      <stat.icon className="w-5 h-5 text-[#9a01cd]" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-2xl font-black text-[#0b2677]">
+                        {stat.value}
+                      </span>
+                      <span className="text-[10px] text-[#0b2677]/60 font-black uppercase tracking-widest">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

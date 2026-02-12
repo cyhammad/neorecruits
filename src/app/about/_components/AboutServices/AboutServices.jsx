@@ -37,8 +37,15 @@ export function AboutServices() {
               business needs and drive organizational success.
             </p>
           </div>
-          <ServicesNav onPrev={scrollPrev} onNext={scrollNext} />
-          <div ref={emblaRef} className="overflow-hidden">
+          {/* Mobile Grid View (2x2) */}
+          <div className="grid grid-cols-2 gap-3 md:hidden">
+            {services.slice(0, 4).map((s) => (
+              <ServiceCard key={s.id} service={s} isGrid />
+            ))}
+          </div>
+
+          {/* Desktop/Tablet Carousel View */}
+          <div ref={emblaRef} className="hidden md:block overflow-hidden">
             <div className="flex -ml-4 sm:-ml-6">
               {services.map((s) => (
                 <ServiceCard key={s.id} service={s} />

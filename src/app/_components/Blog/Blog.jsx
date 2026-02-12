@@ -52,10 +52,10 @@ export function Blog() {
         <BlogHeader isInView={isInView} />
 
         <div className="max-w-7xl mx-auto">
-          {/* Desktop View: Asymmetric Grid Layout */}
-          <div className="hidden md:grid grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
+          {/* Desktop/Tablet View: Grid Layout */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
             {/* Top Row: Large Featured + Standard */}
-            <div className="md:col-span-8">
+            <div className="lg:col-span-8 col-span-1">
               <BlogCard
                 post={posts[0]}
                 index={0}
@@ -63,7 +63,7 @@ export function Blog() {
                 variant="featured"
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="lg:col-span-4 col-span-1">
               <BlogCard
                 post={posts[1]}
                 index={1}
@@ -73,7 +73,7 @@ export function Blog() {
             </div>
 
             {/* Bottom Row: Standard + Large Featured */}
-            <div className="md:col-span-4">
+            <div className="lg:col-span-4 col-span-1">
               <BlogCard
                 post={posts[2]}
                 index={2}
@@ -81,7 +81,7 @@ export function Blog() {
                 variant="standard"
               />
             </div>
-            <div className="md:col-span-8">
+            <div className="lg:col-span-8 col-span-1">
               <BlogCard
                 post={posts[3]}
                 index={3}

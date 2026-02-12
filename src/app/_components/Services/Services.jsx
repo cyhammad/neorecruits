@@ -139,7 +139,7 @@ export function Services() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ ...smoothTransition, delay: 0.4 }}
-            className="hidden lg:block"
+            className="hidden md:block"
           >
             <div className="relative aspect-square w-full max-w-[500px] mx-auto">
               <AnimatePresence mode="wait">

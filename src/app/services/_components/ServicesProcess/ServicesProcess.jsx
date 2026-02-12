@@ -18,7 +18,7 @@ export function ServicesProcess() {
               time, for your organization.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {processSteps.map((step, index) => (
               <ProcessStepCard
                 key={step.id}

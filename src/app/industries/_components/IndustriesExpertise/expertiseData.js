@@ -37,4 +37,22 @@ export const expertiseFeatures = [
     description:
       "Agile recruitment processes that deliver qualified candidates quickly without compromising on quality.",
   },
+  {
+    icon: Award,
+    title: "Compliance First",
+    description:
+      "Strict adherence to local and international labor laws, ethical standards, and data protection regulations.",
+  },
+  {
+    icon: Users,
+    title: "Candidate Experience",
+    description:
+      "Focusing on superior candidate journeys to ensure high retention and employer brand excellence.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Strategic Advisory",
+    description:
+      "Providing long-term workforce planning and talent advisory services beyond simple placements.",
+  },
 ];
