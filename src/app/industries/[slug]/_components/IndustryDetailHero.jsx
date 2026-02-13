@@ -13,6 +13,16 @@ const industryTitles = {
   manufacturing: "Industrial & Manufacturing",
 };
 
+const industryImages = {
+  "oil-gas": "/oil-gas-hero.png",
+  "electrical-power": "/hero-3.png",
+  "renewable-energy": "/insight-sustainability.png",
+  technology: "/expertise-tech.png",
+  logistics: "/hero-1.png",
+  construction: "/hero-2-v2.png",
+  manufacturing: "/hero-1-v2.png",
+};
+
 export function IndustryDetailHero({ slug }) {
   const title =
     industryTitles[slug] ||
@@ -21,13 +31,15 @@ export function IndustryDetailHero({ slug }) {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
 
+  const backgroundImage = industryImages[slug] || "/hero-2-v2.png";
+
   return (
     <section className="relative pt-32 sm:pt-40 h-[50vh] min-h-[450px] w-full flex flex-col overflow-hidden">
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("/hero-2-v2.png")',
+          backgroundImage: `url("${backgroundImage}")`,
         }}
       >
         <div className="absolute inset-0 bg-[#0b2677]/70" />

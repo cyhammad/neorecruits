@@ -15,15 +15,8 @@ export function JobCard({ job }) {
       href={`/jobs/${job.id}`}
       className="group relative flex flex-col h-full rounded-2xl transition-all duration-500 hover:-translate-y-1"
     >
-      {/* Animated Gradient Border */}
-      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-transparent via-transparent to-transparent group-hover:from-[#9a01cd] group-hover:via-[#0b2677] group-hover:to-[#9a01cd] transition-all duration-500 opacity-0 group-hover:opacity-100" />
-
       {/* Card Body */}
-      <div className="relative flex flex-col h-full bg-white rounded-2xl border border-gray-100 group-hover:border-transparent overflow-hidden transition-all duration-500">
-        {/* Ambient Glow (Hover Only) */}
-        <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-[#9a01cd]/40 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-32 h-32 rounded-full bg-[#0b2677]/30 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
+      <div className="relative flex flex-col h-full bg-white rounded-2xl border border-gray-100 group-hover:border-[#0b2677]/10 group-hover:shadow-[0_20px_50px_-12px_rgba(11,38,119,0.15)] overflow-hidden transition-all duration-500">
         <div className="relative z-10 p-3 sm:p-6 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between mb-3 sm:mb-5">

@@ -148,11 +148,103 @@ export function JobsListings({ filters = null }) {
                 Retry
               </Button>
             </div>
-          ) : displayJobs.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 auto-rows-min mt-2">
-              <div className="hidden lg:block lg:col-start-4 lg:col-span-2 lg:row-start-1 lg:row-span-12 sticky top-10 h-fit z-10">
+          ) : (
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start mt-2">
+              {/* Jobs Column */}
+              <div className="flex-1 w-full">
+                {displayJobs.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${animationKey}-${visibleCount}`}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={{
+                          hidden: {},
+                          visible: {
+                            transition: {
+                              staggerChildren: 0.04,
+                              delayChildren: 0.05,
+                            },
+                          },
+                          exit: {
+                            transition: {
+                              staggerChildren: 0.02,
+                              staggerDirection: -1,
+                            },
+                          },
+                        }}
+                        className="contents"
+                      >
+                        {displayJobs.map((job) => (
+                          <motion.div
+                            key={job.id}
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                              hidden: { opacity: 0, y: 40, scale: 0.95 },
+                              visible: {
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                transition: {
+                                  type: "spring",
+                                  stiffness: 260,
+                                  damping: 20,
+                                },
+                              },
+                              exit: {
+                                opacity: 0,
+                                y: -20,
+                                scale: 0.97,
+                                transition: { duration: 0.15 },
+                              },
+                            }}
+                          >
+                            <JobCard job={job} />
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <NoJobsFound />
+                )}
+
+                {!isLoading && !error && filteredJobs.length > visibleCount && (
+                  <div className="flex justify-center mt-8 pb-4">
+                    <Button
+                      onClick={handleLoadMore}
+                      className="group relative pl-8 pr-6 py-6 bg-[#0b2677] text-white hover:bg-[#061852] rounded-xl font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/20 hover:-translate-y-0.5"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span>Load More Jobs</span>
+                        <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all">
+                          <svg
+                            className="w-3 h-3 text-white group-hover:translate-y-0.5 transition-transform duration-300"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2.5}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </Button>
+                  </div>
+                )}
+              </div>
+
+              {/* Sidebar Column */}
+              <div className="hidden lg:block lg:w-[320px] xl:w-[380px] shrink-0 sticky top-24 space-y-6">
                 <JobBanner />
-                <div className="mt-6 p-6 bg-[#0b2677] rounded-[2rem] text-white space-y-4">
+                <div className="p-6 bg-[#0b2677] rounded-[2rem] text-white space-y-4">
                   <h4 className="text-lg font-black uppercase tracking-tight">
                     Need Help?
                   </h4>
@@ -165,73 +257,6 @@ export function JobsListings({ filters = null }) {
                   </Button>
                 </div>
               </div>
-
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={animationKey}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={{
-                    hidden: {},
-                    visible: {
-                      transition: {
-                        staggerChildren: 0.04,
-                        delayChildren: 0.05,
-                      },
-                    },
-                    exit: {
-                      transition: {
-                        staggerChildren: 0.02,
-                        staggerDirection: -1,
-                      },
-                    },
-                  }}
-                  className="contents"
-                >
-                  {displayJobs.map((job) => (
-                    <motion.div
-                      key={job.id}
-                      variants={{
-                        hidden: { opacity: 0, y: 40, scale: 0.95 },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                          scale: 1,
-                          transition: {
-                            type: "spring",
-                            stiffness: 260,
-                            damping: 20,
-                          },
-                        },
-                        exit: {
-                          opacity: 0,
-                          y: -20,
-                          scale: 0.97,
-                          transition: { duration: 0.15 },
-                        },
-                      }}
-                      className="lg:col-span-1"
-                    >
-                      <JobCard job={job} />
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          ) : (
-            <NoJobsFound />
-          )}
-
-          {!isLoading && !error && filteredJobs.length > visibleCount && (
-            <div className="text-center pt-8">
-              <Button
-                onClick={handleLoadMore}
-                variant="outline"
-                className="rounded-2xl border-none bg-white shadow-xl shadow-gray-200/50 text-[#0b2677] hover:bg-[#0b2677] hover:text-white transition-all duration-300 font-black text-[10px] uppercase tracking-[0.2em] px-10 h-14"
-              >
-                Load More Jobs
-              </Button>
             </div>
           )}
         </div>
