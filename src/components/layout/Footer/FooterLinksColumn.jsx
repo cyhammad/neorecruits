@@ -11,7 +11,7 @@ export function FooterLinksColumn({ title, links }) {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-white/60 hover:text-[#9a01cd] transition-colors text-sm"
+              className="text-white/60  transition-colors text-sm"
             >
               {link.label}
             </Link>

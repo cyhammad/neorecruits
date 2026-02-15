@@ -165,7 +165,7 @@ export default function SignInPage() {
                   </label>
                   <a
                     href="#"
-                    className="text-[9px] font-black text-[#9a01cd]/60 hover:text-[#9a01cd] transition-colors uppercase tracking-widest"
+                    className="text-[9px] font-black text-[#9a01cd]/60  transition-colors uppercase tracking-widest"
                   >
                     Forgot Access?
                   </a>
@@ -210,7 +210,7 @@ export default function SignInPage() {
               <span className="text-white/20">New around here?</span>
               <Link
                 href="/signup"
-                className="text-white hover:text-[#9a01cd] transition-colors flex items-center gap-2"
+                className="text-white  transition-colors flex items-center gap-2"
               >
                 Create Account{" "}
                 <UserCheck size={14} className="text-[#9a01cd]" />

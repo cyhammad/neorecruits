@@ -16,7 +16,7 @@ export function ServiceListCard({ service }) {
       <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-[#9a01cd]/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#9a01cd] transition-colors duration-300">
         <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#9a01cd] group-hover:text-white transition-colors duration-300" />
       </div>
-      <h3 className="text-xl sm:text-2xl font-bold text-[#0b2677] group-hover:text-[#9a01cd] transition-colors duration-300 mb-3">
+      <h3 className="text-xl sm:text-2xl font-bold text-[#0b2677]  transition-colors duration-300 mb-3">
         {service.title}
       </h3>
       <p className="text-sm sm:text-base text-[#0b2677]/70 leading-relaxed mb-4 sm:mb-6 grow font-medium">

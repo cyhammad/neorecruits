@@ -53,7 +53,7 @@ export function BlogCard({
                   {post.date}
                 </span>
               </div>
-              <h3 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-tight leading-tight group-hover:text-[#9a01cd] transition-colors">
+              <h3 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-tight leading-tight  transition-colors">
                 {post.title}
               </h3>
               <p className="text-white/60 text-sm leading-relaxed line-clamp-2 font-medium">
@@ -101,7 +101,7 @@ export function BlogCard({
               </div>
               <h3
                 className={cn(
-                  "text-xl font-black uppercase tracking-tight leading-tight transition-colors group-hover:text-[#9a01cd]",
+                  "text-xl font-black uppercase tracking-tight leading-tight transition-colors ",
                   theme === "dark" ? "text-white" : "text-[#0b2677]",
                 )}
               >

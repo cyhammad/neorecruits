@@ -6,7 +6,7 @@ export function MilestoneCard({ milestone }) {
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#9a01cd]/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700" />
 
       <div className="relative z-10 flex flex-col items-start space-y-4">
-        <div className="text-4xl sm:text-5xl font-black text-[#0b2677]/5 group-hover:text-[#9a01cd]/10 transition-colors duration-500">
+        <div className="text-4xl sm:text-5xl font-black text-[#0b2677]/5 /10 transition-colors duration-500">
           {milestone.year}
         </div>
 

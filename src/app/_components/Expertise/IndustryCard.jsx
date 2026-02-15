@@ -28,7 +28,7 @@ export function IndustryCard({ industry, index, isInView }) {
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
-        <h3 className="mt-4 sm:mt-5 text-[#0b2677] group-hover:text-[#9a01cd] transition-colors text-sm sm:text-base md:text-[17px] font-bold leading-tight">
+        <h3 className="mt-4 sm:mt-5 text-[#0b2677]  transition-colors text-sm sm:text-base md:text-[17px] font-bold leading-tight">
           {industry.title}
         </h3>
       </div>

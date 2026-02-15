@@ -55,7 +55,7 @@ export function ServiceCard({ service, isGrid }) {
           <div className="space-y-1">
             <h3
               className={cn(
-                "font-black text-[#0b2677] uppercase tracking-tight group-hover:text-[#9a01cd] transition-colors duration-300 leading-tight",
+                "font-black text-[#0b2677] uppercase tracking-tight  transition-colors duration-300 leading-tight",
                 isGrid ? "text-xs" : "text-lg sm:text-2xl",
               )}
             >

@@ -264,7 +264,7 @@ export default function SignUpPage() {
               <span className="text-white/20">Already verified?</span>
               <Link
                 href="/signin"
-                className="text-white hover:text-[#9a01cd] transition-colors flex items-center gap-2"
+                className="text-white  transition-colors flex items-center gap-2"
               >
                 Sign In <Shield size={14} className="text-[#9a01cd]" />
               </Link>

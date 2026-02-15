@@ -231,7 +231,7 @@ export function ServiceDetailRoles({ slug }) {
                         <span className="text-[#9a01cd] text-sm font-bold">
                           {insight.date}
                         </span>
-                        <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight group-hover:text-[#9a01cd] transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight  transition-colors">
                           {insight.title}
                         </h3>
                       </div>
@@ -251,7 +251,7 @@ export function ServiceDetailRoles({ slug }) {
                         <span className="text-[#9a01cd] text-sm font-bold">
                           {insight.date}
                         </span>
-                        <h3 className="text-lg sm:text-xl font-bold text-[#0b2677] leading-tight group-hover:text-[#9a01cd] transition-colors">
+                        <h3 className="text-lg sm:text-xl font-bold text-[#0b2677] leading-tight  transition-colors">
                           {insight.title}
                         </h3>
                         <p className="text-[#0b2677]/70 text-sm leading-relaxed font-medium">

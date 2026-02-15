@@ -180,7 +180,7 @@ export function IndustryDetailCompliance({ slug }) {
                   <div className="w-10 h-10 rounded-lg bg-[#9a01cd]/10 flex items-center justify-center group-hover:bg-[#9a01cd] transition-colors duration-300">
                     <req.icon className="w-5 h-5 text-[#9a01cd] group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0b2677] group-hover:text-[#9a01cd] transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0b2677]  transition-colors duration-300">
                     {req.title}
                   </h3>
                 </div>

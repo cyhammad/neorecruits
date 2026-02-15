@@ -22,7 +22,7 @@ export function ExpertiseCard({ feature }) {
         </div>
 
         <div>
-          <h3 className="text-[10px] sm:text-xl font-black text-white mb-1 sm:mb-3 group-hover:text-[#9a01cd] transition-colors duration-300 uppercase tracking-tight sm:tracking-wide leading-tight">
+          <h3 className="text-[10px] sm:text-xl font-black text-white mb-1 sm:mb-3  transition-colors duration-300 uppercase tracking-tight sm:tracking-wide leading-tight">
             {feature.title}
           </h3>
           <p className="hidden sm:block text-sm text-white/60 leading-relaxed font-medium group-hover:text-white/80 transition-colors">

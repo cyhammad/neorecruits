@@ -12,7 +12,7 @@ export function AuthorInfo({ author, company, isActive }) {
       className="relative"
     >
       <div className="flex flex-col items-start gap-1 relative z-10">
-        <h4 className="text-[#0b2677] font-black text-sm sm:text-base tracking-tight group-hover:text-[#9a01cd] transition-colors duration-300">
+        <h4 className="text-[#0b2677] font-black text-sm sm:text-base tracking-tight  transition-colors duration-300">
           {author}
         </h4>
         <p className="text-[#9a01cd] text-[10px] font-black uppercase tracking-widest opacity-60">

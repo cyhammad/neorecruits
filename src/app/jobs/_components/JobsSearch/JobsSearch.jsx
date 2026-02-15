@@ -211,7 +211,7 @@ export function JobsSearch({ onFilterChange }) {
               (tag) => (
                 <button
                   key={tag}
-                  className="px-5 py-2 rounded-full border border-gray-200 text-[#0b2677] text-xs font-bold hover:border-[#9a01cd] hover:text-[#9a01cd] transition-all duration-300 bg-white"
+                  className="px-5 py-2 rounded-full border border-gray-200 text-[#0b2677] text-xs font-bold hover:border-[#9a01cd]  transition-all duration-300 bg-white"
                 >
                   {tag}
                 </button>

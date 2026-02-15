@@ -26,7 +26,7 @@ export function JobCard({ job }) {
                 {job.employmentType}
               </span>
             </div>
-            <span className="hidden sm:block text-[9px] font-mono text-gray-300 group-hover:text-[#9a01cd] transition-colors duration-500">
+            <span className="hidden sm:block text-[9px] font-mono text-gray-300  transition-colors duration-500">
               #{job.id.toString().padStart(4, "0")}
             </span>
           </div>
@@ -40,7 +40,7 @@ export function JobCard({ job }) {
               <div className="hidden sm:flex w-5 h-5 rounded-full bg-[#0b2677]/5 group-hover:bg-[#9a01cd]/20 items-center justify-center transition-colors duration-500">
                 <Building2 size={11} className="text-[#9a01cd]" />
               </div>
-              <p className="text-[8px] sm:text-xs font-semibold text-gray-400 group-hover:text-[#9a01cd] transition-colors duration-500 line-clamp-1">
+              <p className="text-[8px] sm:text-xs font-semibold text-gray-400  transition-colors duration-500 line-clamp-1">
                 {job.company}
               </p>
             </div>
@@ -51,14 +51,14 @@ export function JobCard({ job }) {
             <div className="flex items-center gap-1 px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full bg-gray-50 group-hover:bg-[#0b2677]/5 text-[7px] sm:text-[10px] font-bold uppercase tracking-wide text-gray-400 group-hover:text-[#0b2677] transition-all duration-500 border border-transparent group-hover:border-[#0b2677]/10">
               <MapPin
                 size={8}
-                className="text-[#9a01cd]/50 group-hover:text-[#9a01cd] sm:w-[11px] sm:h-[11px]"
+                className="text-[#9a01cd]/50  sm:w-[11px] sm:h-[11px]"
               />
               {job.city}
             </div>
             <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-50 group-hover:bg-[#0b2677]/5 text-[10px] font-bold uppercase tracking-wide text-gray-400 group-hover:text-[#0b2677] transition-all duration-500 border border-transparent group-hover:border-[#0b2677]/10">
               <Briefcase
                 size={11}
-                className="text-[#9a01cd]/50 group-hover:text-[#9a01cd]"
+                className="text-[#9a01cd]/50 "
               />
               {job.type}
             </div>
@@ -68,7 +68,7 @@ export function JobCard({ job }) {
           <div className="mt-3 sm:mt-6 pt-2 sm:pt-5 border-t border-gray-50 group-hover:border-[#9a01cd]/10 transition-colors duration-500">
             <div className="flex items-end justify-between">
               <div className="min-w-0 flex-1">
-                <span className="hidden sm:block text-[8px] sm:text-[9px] font-bold uppercase tracking-widest text-gray-300 mb-0.5 sm:mb-1 group-hover:text-[#9a01cd]/50 transition-colors duration-500">
+                <span className="hidden sm:block text-[8px] sm:text-[9px] font-bold uppercase tracking-widest text-gray-300 mb-0.5 sm:mb-1 /50 transition-colors duration-500">
                   Salary Range
                 </span>
                 <span className="text-[9px] sm:text-sm font-extrabold text-[#0b2677] transition-colors duration-300 block truncate">

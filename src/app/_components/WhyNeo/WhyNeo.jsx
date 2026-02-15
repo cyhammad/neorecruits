@@ -103,7 +103,7 @@ export function WhyNeo() {
                 <div className="size-10 sm:size-14 rounded-xl bg-[#0b2677]/5 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#9a01cd] transition-colors duration-300">
                   <reason.icon className="size-5 sm:size-7 text-[#0b2677] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-[13px] sm:text-lg font-bold text-[#0b2677] mb-2 sm:mb-3 group-hover:text-[#9a01cd] transition-colors duration-300 line-clamp-2">
+                <h3 className="text-[13px] sm:text-lg font-bold text-[#0b2677] mb-2 sm:mb-3  transition-colors duration-300 line-clamp-2">
                   {reason.title}
                 </h3>
                 <p className="text-[#0b2677]/60 text-[11px] sm:text-sm leading-relaxed font-medium line-clamp-3 sm:line-clamp-none">
