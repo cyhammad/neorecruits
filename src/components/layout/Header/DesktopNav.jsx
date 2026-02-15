@@ -10,9 +10,10 @@ export function DesktopNav({ navLinks }) {
         <Link
           key={link.name}
           href={link.href}
-          className="group flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-white/90 hover:text-white transition-colors"
+          className="group flex items-center gap-0.25 flex-col text-[11px] font-bold uppercase tracking-widest text-white/90 hover:text-white transition-all duration-300 ease-in-out"
         >
           <span>{link.name}</span>
+          <div className="group-hover:w-full w-0 transition-all duration-300 ease-in-out h-0.25 bg-white/80"></div>
         </Link>
       ))}
     </div>

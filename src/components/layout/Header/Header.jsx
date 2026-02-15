@@ -8,8 +8,6 @@ import { navLinks } from "./navLinks";
 import { TopBar } from "./TopBar";
 import { MobileMenu } from "./MobileMenu";
 
-import { DesktopActions } from "./DesktopActions";
-
 /**
  * Header component optimized for reduced latency.
  * - Snap-to-scroll response (duration-150 transform)
